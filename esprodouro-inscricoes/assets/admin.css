@@ -1,0 +1,11 @@
+.esprodouro-inscricoes .esprodouro-filters{margin:14px 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.esprodouro-inscricoes .esprodouro-filters input[type=search]{min-width:280px}
+.esprodouro-inscricoes .esprodouro-status{display:inline-block;padding:2px 10px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;line-height:1.6}
+.esprodouro-inscricoes .esprodouro-status--novo{background:#fde7e8;color:#964030}
+.esprodouro-inscricoes .esprodouro-status--contactado{background:#fff3cd;color:#664d03}
+.esprodouro-inscricoes .esprodouro-status--inscrito{background:#d1e7dd;color:#0f5132}
+.esprodouro-inscricoes .esprodouro-status--descartado{background:#e7e7e7;color:#555}
+.esprodouro-inscricoes .esprodouro-detail{background:#fff;padding:20px;border:1px solid #c3c4c7;margin-top:16px}
+.esprodouro-inscricoes .esprodouro-detail .form-table th{width:220px}
+.esprodouro-inscricoes .esprodouro-action-form{display:inline-block;margin:0 8px 0 0}
+.esprodouro-inscricoes .title-count{display:inline-block;background:#e8383e;color:#fff;padding:0 8px;border-radius:100px;font-size:12px;line-height:20px;margin-left:8px;vertical-align:middle}

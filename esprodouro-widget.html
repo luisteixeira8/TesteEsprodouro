@@ -1,0 +1,416 @@
+<style>
+.espro *{box-sizing:border-box;margin:0;padding:0}
+.espro{--ac:#e8383e;--dk:#171927;--tx:#1e1e1e;--t2:#555;--bd:#e5e5e5;font-family:inherit;color:var(--tx);line-height:1.55;-webkit-text-size-adjust:100%}
+.espro h1,.espro h3{text-wrap:balance}
+
+.espro-eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:24px}
+.espro-kicker{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:20px;font-variant-numeric:tabular-nums}
+
+.espro-hero{padding:40px 0 36px}
+.espro-hero h1{font-weight:300;font-size:34px;line-height:1.05;letter-spacing:-0.03em;margin-bottom:18px}
+.espro-hero h1 em{font-style:italic;font-weight:600;color:var(--ac)}
+.espro-hero__lead{font-size:16px;line-height:1.65;color:var(--t2);margin-bottom:28px}
+
+.espro-badge{display:inline-flex;align-items:center;gap:12px;padding:6px 16px 6px 6px;background:#fff;border:1px solid var(--bd);border-radius:100px;margin-bottom:20px;box-shadow:0 2px 10px rgba(23,25,39,.06)}
+.espro-badge__seal{width:40px;height:40px;flex-shrink:0;display:block}
+.espro-badge__txt{display:flex;flex-direction:column;line-height:1.2}
+.espro-badge__t{font-size:11.5px;font-weight:700;color:var(--tx);letter-spacing:.01em}
+.espro-badge__s{font-size:9px;font-weight:600;color:var(--t2);letter-spacing:.16em;text-transform:uppercase;margin-top:3px}
+
+.espro-cta{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:var(--ac);color:#fff;border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;min-height:54px;-webkit-tap-highlight-color:transparent}
+.espro-cta:active{opacity:.85}
+.espro-cta:focus-visible{outline:2px solid var(--tx);outline-offset:3px}
+
+.espro-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd);margin-top:36px}
+.espro-stat{background:#fff;padding:20px 16px;text-align:center}
+.espro-stat__n{font-size:28px;font-weight:300;line-height:1;color:var(--ac);margin-bottom:6px;font-variant-numeric:tabular-nums}
+.espro-stat__l{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#999}
+
+.espro-section{padding-top:36px;border-top:1px solid var(--bd);margin-top:36px}
+.espro-section h3{font-weight:300;font-size:26px;line-height:1.12;letter-spacing:-0.02em;margin-bottom:16px}
+.espro-section h3 em{font-style:italic;font-weight:500;color:var(--ac)}
+.espro-section p{font-size:15px;line-height:1.7;color:var(--t2);margin-bottom:14px}
+.espro-section p:last-of-type{margin-bottom:0}
+
+.espro-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.espro-pill{font-size:11px;font-weight:500;padding:7px 13px;background:#fff;border:1px solid var(--bd);color:var(--t2);border-radius:100px;letter-spacing:.02em}
+
+.espro-meals{margin-top:18px;background:#fff;border:1px solid var(--bd);border-left:3px solid var(--ac);padding:18px 18px 18px 16px;display:flex;flex-direction:column;gap:14px}
+.espro-meals__head{display:flex;align-items:flex-start;gap:14px}
+.espro-meals__star{width:40px;height:40px;background:rgba(232,56,62,.08);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--ac);font-size:20px;flex-shrink:0}
+.espro-meals__t{font-size:15.5px;font-weight:600;color:var(--tx);line-height:1.3;margin-bottom:4px}
+.espro-meals__t em{font-style:italic;color:var(--ac);font-weight:700}
+.espro-meals__d{font-size:13px;color:var(--t2);line-height:1.55;margin:0}
+.espro-meals__list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding-top:14px;border-top:1px solid var(--bd);margin:0}
+.espro-meals__list li{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--tx);font-weight:500;line-height:1.25}
+.espro-meals__ic{width:30px;height:30px;background:#f4f2ee;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--ac);flex-shrink:0}
+.espro-meals__note{font-size:11.5px;color:var(--t2);line-height:1.5;margin:0;padding-top:2px;font-style:italic}
+
+@media(min-width:768px){
+.espro-meals{padding:24px 28px;gap:18px;margin-top:24px}
+.espro-meals__star{width:46px;height:46px;font-size:22px}
+.espro-meals__t{font-size:18px}
+.espro-meals__d{font-size:14px}
+.espro-meals__list{grid-template-columns:repeat(4,1fr);gap:14px;padding-top:18px}
+.espro-meals__list li{font-size:14px}
+.espro-meals__ic{width:34px;height:34px;font-size:16px}
+.espro-meals__note{font-size:12.5px}
+}
+
+.espro-courses{margin-top:34px}
+.espro-courses__head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--bd)}
+.espro-courses__t{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--tx)}
+.espro-courses__n{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}
+.espro-courses__list{list-style:none;display:flex;flex-direction:column}
+.espro-courses__item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--bd);font-size:14px;line-height:1.35}
+.espro-courses__item:last-child{border-bottom:0}
+.espro-courses__name{color:var(--tx);font-weight:500;flex:1}
+.espro-courses__lvl{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--ac);background:rgba(232,56,62,.08);padding:4px 9px;border-radius:4px;flex-shrink:0}
+
+#espro-form-area{scroll-margin-top:20px}
+.espro-form-top p{font-size:15px;line-height:1.6;color:var(--t2);margin-top:12px}
+
+.espro-form-wrap{background:var(--dk);color:#d4d4dc;padding:30px 22px 36px;margin-top:24px}
+.espro-form-wrap h3{font-weight:300;font-size:21px;line-height:1.15;margin-bottom:6px;color:#ededf0;letter-spacing:-0.01em}
+.espro-form-wrap h3 em{font-style:italic;color:var(--ac);font-weight:500}
+.espro-fsub{font-size:13px;color:#7e8090;margin-bottom:26px}
+
+.espro-form{display:flex;flex-direction:column;gap:20px}
+.espro-fld{display:flex;flex-direction:column;gap:7px}
+.espro-fld>label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7e8090}
+.espro-fld input,.espro-fld select{background:transparent;border:0;border-bottom:1px solid rgba(212,212,220,.18);padding:12px 0;font-family:inherit;font-size:16px;color:#ededf0;border-radius:0;-webkit-appearance:none;appearance:none;outline:none;width:100%;line-height:1.4;min-height:48px}
+.espro-fld select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23d4d4dc' d='M6 8 0 0h12z'/></svg>");background-repeat:no-repeat;background-position:right 4px center;padding-right:24px;cursor:pointer}
+.espro-fld select option{background:var(--dk);color:#ededf0}
+.espro-fld select:invalid{color:rgba(212,212,220,.4)}
+.espro-fld input:focus-visible,.espro-fld select:focus-visible{border-bottom-color:var(--ac)}
+.espro-fld input::placeholder{color:rgba(212,212,220,.25)}
+
+.espro-fnote{font-size:11.5px;color:#7e8090;line-height:1.5;margin-top:6px}
+
+.espro-fld__hint{font-size:11px;font-weight:500;letter-spacing:.02em;text-transform:none;color:#5e6071;margin-left:8px}
+.espro-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.espro-chip{position:relative;display:inline-block}
+.espro-chip input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.espro-chip span{display:inline-flex;align-items:center;padding:10px 14px;border:1px solid rgba(212,212,220,.22);border-radius:100px;font-size:13px;color:#d4d4dc;line-height:1.2;min-height:40px;transition:background .15s ease,border-color .15s ease,color .15s ease;-webkit-tap-highlight-color:transparent}
+.espro-chip input:checked + span{background:var(--ac);border-color:var(--ac);color:#fff}
+.espro-chip input:focus-visible + span{outline:2px solid #fff;outline-offset:2px}
+@media(hover:hover){.espro-chip:hover input:not(:checked) + span{border-color:rgba(212,212,220,.45);color:#ededf0}}
+
+.espro-btn{margin-top:10px;padding:18px 24px;background:var(--ac);color:#fff;border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;width:100%;min-height:54px;-webkit-tap-highlight-color:transparent}
+.espro-btn:active{opacity:.85}
+.espro-btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.espro-btn:disabled{opacity:.5;cursor:not-allowed}
+
+.espro-ferr{font-size:13px;font-weight:500;color:#ff7b6b;padding:8px 0 8px 14px;border-left:2px solid #ff7b6b;display:none}
+
+.espro-success{background:var(--dk);padding:48px 24px;text-align:center;margin-top:24px}
+.espro-success__c{width:48px;height:48px;border-radius:50%;background:#3cb371;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:#fff;font-size:22px;font-weight:700}
+.espro-success h3{font-weight:300;font-size:24px;color:#ededf0;margin-bottom:12px;letter-spacing:-0.01em}
+.espro-success h3 em{font-style:italic;color:var(--ac);font-weight:500}
+.espro-success p{font-size:15px;color:#9a9caa;line-height:1.6;max-width:400px;margin:0 auto}
+
+@media(min-width:768px){
+.espro-hero{padding:64px 0 52px}
+.espro-hero h1{font-size:clamp(40px,5vw,60px)}
+.espro-hero__lead{font-size:18px;max-width:560px}
+.espro-stats{grid-template-columns:repeat(4,1fr);margin-top:44px}
+.espro-stat{padding:24px 20px}
+.espro-stat__n{font-size:34px}
+.espro-stat__l{font-size:11px}
+.espro-section{padding-top:48px;margin-top:48px}
+.espro-section h3{font-size:32px}
+.espro-section p{font-size:16px;max-width:600px}
+.espro-form-top p{font-size:16px;max-width:540px}
+.espro-form-wrap{padding:40px 36px 44px}
+.espro-form-wrap h3{font-size:24px}
+.espro-success{padding:60px 32px}
+.espro-success h3{font-size:28px}
+.espro-success p{font-size:16px}
+.espro-badge{padding:8px 20px 8px 8px}
+.espro-badge__seal{width:46px;height:46px}
+.espro-badge__t{font-size:12.5px}
+.espro-courses__item{font-size:15px;padding:16px 0}
+}
+
+.espro-why__head{margin-bottom:1.25rem}
+.espro-why__head h3{margin-bottom:8px}
+.espro-why__sub{font-size:14px;line-height:1.55;color:var(--color-text-secondary,var(--t2));margin:0}
+.espro-why__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.espro-why__card{background:var(--color-background-primary,#fff);border:0.5px solid var(--color-border-tertiary,var(--bd));border-radius:var(--border-radius-lg,12px);padding:1.1rem .9rem;text-align:center}
+.espro-why__icon{width:42px;height:42px;background:var(--color-background-secondary,#f4f2ee);border-radius:var(--border-radius-md,8px);display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto .7rem;color:var(--tx)}
+.espro-why__t{font-size:14.5px;font-weight:500;margin-bottom:6px;color:var(--tx);line-height:1.25}
+.espro-why__d{font-size:12.5px;line-height:1.5;color:var(--color-text-secondary,var(--t2));margin:0}
+
+@media(min-width:768px){
+.espro-why__head{margin-bottom:1.5rem}
+.espro-why__grid{grid-template-columns:repeat(4,1fr);gap:16px}
+.espro-why__card{padding:1.5rem}
+.espro-why__icon{width:48px;height:48px;font-size:22px;margin-bottom:1rem}
+.espro-why__t{font-size:16px;margin-bottom:8px;line-height:1.3}
+.espro-why__d{font-size:13px;line-height:1.6}
+}
+
+.espro-infra__sub{font-size:14px;line-height:1.55;color:var(--t2);margin:0 0 22px}
+.espro-infra__grid{display:flex;flex-direction:column;gap:10px}
+.espro-infra__card{display:flex;align-items:flex-start;gap:14px;padding:16px;background:#fff;border:1px solid var(--bd);border-radius:10px}
+.espro-infra__icon{width:44px;height:44px;background:rgba(232,56,62,.07);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:21px;color:var(--ac);flex-shrink:0}
+.espro-infra__t{font-size:14.5px;font-weight:600;color:var(--tx);margin-bottom:4px;line-height:1.25}
+.espro-infra__d{font-size:12.5px;line-height:1.5;color:var(--t2);margin:0}
+.espro-infra__note{margin-top:18px;padding:16px 18px;background:rgba(232,56,62,.04);border-left:3px solid var(--ac);font-size:13px;line-height:1.6;color:var(--t2)}
+.espro-infra__note strong{color:var(--tx);font-weight:600}
+
+@media(min-width:768px){
+.espro-infra__sub{font-size:15px;margin-bottom:28px}
+.espro-infra__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.espro-infra__card{padding:20px}
+.espro-infra__icon{width:50px;height:50px;font-size:24px}
+.espro-infra__t{font-size:16px;margin-bottom:5px}
+.espro-infra__d{font-size:13.5px}
+.espro-infra__note{padding:20px 24px;font-size:14px}
+}
+</style>
+
+<div class="espro">
+
+  <div class="espro-hero">
+    <div class="espro-eyebrow">Inscrições · 2026</div>
+
+    <div class="espro-badge" role="img" aria-label="Escola premiada pela excelência do ensino">
+      <svg class="espro-badge__seal" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M21 40 L16 60 L24 56 L28 62 L32 50 Z" fill="#171927"/>
+        <path d="M43 40 L48 60 L40 56 L36 62 L32 50 Z" fill="#171927"/>
+        <circle cx="32" cy="28" r="20" fill="#e8383e"/>
+        <circle cx="32" cy="28" r="20" fill="none" stroke="#fff" stroke-width="1" opacity=".35"/>
+        <circle cx="32" cy="28" r="15.5" fill="none" stroke="#fff" stroke-width=".7" opacity=".55"/>
+        <path d="M32 17 L34.6 24.5 L42.5 25 L36.2 30 L38.3 37.5 L32 33.2 L25.7 37.5 L27.8 30 L21.5 25 L29.4 24.5 Z" fill="#fff"/>
+      </svg>
+      <div class="espro-badge__txt">
+        <span class="espro-badge__t">Escola Premiada</span>
+        <span class="espro-badge__s">Excelência reconhecida</span>
+      </div>
+    </div>
+
+    <h1>Descobre o teu futuro no Douro.<br>Recebe um <em>brinde</em> por isso.</h1>
+    <p class="espro-hero__lead">Deixa os teus dados e recebe no WhatsApp um brinde exclusivo da ESPRODOURO. Sem compromisso — é a nossa forma de te dar a conhecer o que fazemos.</p>
+    <button type="button" class="espro-cta" onclick="document.getElementById('espro-form-area').scrollIntoView({behavior:'smooth',block:'start'})">Quero o meu brinde &rarr;</button>
+
+    <div class="espro-stats">
+      <div class="espro-stat"><div class="espro-stat__n">35+</div><div class="espro-stat__l">Anos de ensino</div></div>
+      <div class="espro-stat"><div class="espro-stat__n">93%</div><div class="espro-stat__l">Taxa de conclusão</div></div>
+      <div class="espro-stat"><div class="espro-stat__n">80%</div><div class="espro-stat__l">Empregabilidade</div></div>
+      <div class="espro-stat"><div class="espro-stat__n">7</div><div class="espro-stat__l">Cursos disponíveis</div></div>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+  <div class="espro-section">
+    <div class="espro-kicker">01 — O ponto de partida</div>
+    <h3>Aqui começa o <em>kick-off</em> da tua carreira</h3>
+    <p>A ESPRODOURO não é só mais uma escola — é a tua rampa de lançamento. Em vez de passares anos sentado a ouvir teoria, sais daqui com prática real, contactos no mercado e um plano claro para aquilo que queres ser.</p>
+    <p>Não importa se sonhas com a alta cozinha em Lisboa, com vinhos no Douro, com tecnologia em Berlim ou com gerir o teu próprio projeto: ligamos-te aos melhores restaurantes, clínicas, adegas e empresas da Europa. O teu talento merece um palco à altura.</p>
+    <div class="espro-pills">
+      <span class="espro-pill">Carreira real</span>
+      <span class="espro-pill">Networking premium</span>
+      <span class="espro-pill">Estágios na Europa</span>
+      <span class="espro-pill">Mentores no mercado</span>
+    </div>
+  </div>
+
+  <div class="espro-section espro-why">
+    <div class="espro-why__head">
+      <div class="espro-kicker">02 — Vantagens</div>
+      <h3>Porque é que a <em>ESPRODOURO</em> é diferente de tudo o que já viste?</h3>
+      <p class="espro-why__sub">Esquece o modelo de aulas só com teoria. Aqui aprendes a fazer — desde o primeiro dia.</p>
+    </div>
+    <div class="espro-why__grid">
+      <div class="espro-why__card">
+        <div class="espro-why__icon"><i class="ti ti-tool"></i></div>
+        <h4 class="espro-why__t">70% de Prática Diária</h4>
+        <p class="espro-why__d">Executas a profissão a sério desde o primeiro dia. Menos quadro, mais mão na massa.</p>
+      </div>
+      <div class="espro-why__card">
+        <div class="espro-why__icon"><i class="ti ti-briefcase"></i></div>
+        <h4 class="espro-why__t">Empregabilidade Premium</h4>
+        <p class="espro-why__d">Acesso direto a uma rede de restaurantes, empresas e marcas de topo. As portas já estão abertas.</p>
+      </div>
+      <div class="espro-why__card">
+        <div class="espro-why__icon"><i class="ti ti-world"></i></div>
+        <h4 class="espro-why__t">Carreira Internacional</h4>
+        <p class="espro-why__d">Estágios remunerados na Europa — uma possibilidade real, não uma promessa vazia.</p>
+      </div>
+      <div class="espro-why__card">
+        <div class="espro-why__icon"><i class="ti ti-shield-check"></i></div>
+        <h4 class="espro-why__t">Ecossistema 100% Financiado</h4>
+        <p class="espro-why__d">Alojamento, transporte, material e <strong>todas as refeições</strong> por nossa conta. O teu único foco é crescer.</p>
+      </div>
+    </div>
+
+    <div class="espro-meals">
+      <div class="espro-meals__head">
+        <div class="espro-meals__star"><i class="ti ti-coffee"></i></div>
+        <div>
+          <h4 class="espro-meals__t">Sim, <em>todas</em> as refeições são por nossa conta</h4>
+          <p class="espro-meals__d">Não pagas nada — nem na cantina, nem no bar da escola. Comes e bebes à vontade durante o dia inteiro.</p>
+        </div>
+      </div>
+      <ul class="espro-meals__list">
+        <li><span class="espro-meals__ic"><i class="ti ti-bread"></i></span><span>Pequeno-almoço no bar</span></li>
+        <li><span class="espro-meals__ic"><i class="ti ti-tools-kitchen-2"></i></span><span>Almoço completo</span></li>
+        <li><span class="espro-meals__ic"><i class="ti ti-cup"></i></span><span>Lanches no bar</span></li>
+        <li><span class="espro-meals__ic"><i class="ti ti-moon"></i></span><span>Jantar (se alojado)</span></li>
+      </ul>
+      <p class="espro-meals__note">Bebidas, snacks e refeições rápidas no bar — sem mensalidades, sem cartões pré-pagos, sem letras pequenas.</p>
+    </div>
+
+  </div>
+
+  <div class="espro-section espro-infra">
+    <div class="espro-kicker">03 — Infraestruturas</div>
+    <h3>Laboratórios e salas de <em>topo</em></h3>
+    <p class="espro-infra__sub">Aprendes com os mesmos recursos que encontras no mercado de trabalho — não com equipamentos ultrapassados.</p>
+
+    <div class="espro-infra__grid">
+      <div class="espro-infra__card">
+        <div class="espro-infra__icon"><i class="ti ti-flask"></i></div>
+        <div>
+          <h4 class="espro-infra__t">Laboratórios de Ciências</h4>
+          <p class="espro-infra__d">Equipados com tecnologia de ponta para experiências práticas que vão além do manual escolar.</p>
+        </div>
+      </div>
+      <div class="espro-infra__card">
+        <div class="espro-infra__icon"><i class="ti ti-tools-kitchen-2"></i></div>
+        <div>
+          <h4 class="espro-infra__t">Cozinha Profissional</h4>
+          <p class="espro-infra__d">O mesmo standard da indústria — aprendes com equipamento real, não com maquetas.</p>
+        </div>
+      </div>
+      <div class="espro-infra__card">
+        <div class="espro-infra__icon"><i class="ti ti-cpu"></i></div>
+        <div>
+          <h4 class="espro-infra__t">Oficinas de Eletrónica</h4>
+          <p class="espro-infra__d">Bancadas de prototipagem, instrumentação de medida e componentes para projetos reais.</p>
+        </div>
+      </div>
+      <div class="espro-infra__card">
+        <div class="espro-infra__icon"><i class="ti ti-device-desktop"></i></div>
+        <div>
+          <h4 class="espro-infra__t">Salas de Informática</h4>
+          <p class="espro-infra__d">Computadores atualizados e software profissional — do design à programação.</p>
+        </div>
+      </div>
+      <div class="espro-infra__card">
+        <div class="espro-infra__icon"><i class="ti ti-camera"></i></div>
+        <div>
+          <h4 class="espro-infra__t">Estúdio Multimédia</h4>
+          <p class="espro-infra__d">Câmaras, iluminação e edição profissional para quem quer criar conteúdos a sério.</p>
+        </div>
+      </div>
+      <div class="espro-infra__card">
+        <div class="espro-infra__icon"><i class="ti ti-users-group"></i></div>
+        <div>
+          <h4 class="espro-infra__t">Espaços Colaborativos</h4>
+          <p class="espro-infra__d">Salas de projeto pensadas para trabalho em equipa, brainstorming e apresentações.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="espro-infra__note">
+      <strong>Investimento contínuo em infraestruturas.</strong> A ESPRODOURO renova equipamentos e espaços todos os anos para que aprendas sempre com o que há de melhor.
+    </div>
+  </div>
+
+  <div class="espro-section">
+    <div class="espro-kicker">04 — Os teus percursos</div>
+    <h3>7 cursos para construíres o <em>teu caminho</em></h3>
+    <div class="espro-courses">
+      <ul class="espro-courses__list">
+        <li class="espro-courses__item"><span class="espro-courses__name">Cozinha e Restauração</span><span class="espro-courses__lvl">N4</span></li>
+        <li class="espro-courses__item"><span class="espro-courses__name">Comunicação, Marketing, Relações Públicas e Publicidade</span><span class="espro-courses__lvl">N4</span></li>
+        <li class="espro-courses__item"><span class="espro-courses__name">Gestão e Administração</span><span class="espro-courses__lvl">N4</span></li>
+        <li class="espro-courses__item"><span class="espro-courses__name">Eletrónica e Automação</span><span class="espro-courses__lvl">N4</span></li>
+        <li class="espro-courses__item"><span class="espro-courses__name">Enologia e Enoturismo</span><span class="espro-courses__lvl">N4</span></li>
+        <li class="espro-courses__item"><span class="espro-courses__name">Produção de Conteúdos Interativos</span><span class="espro-courses__lvl">N4</span></li>
+        <li class="espro-courses__item"><span class="espro-courses__name">CEF — Operador de Informática</span><span class="espro-courses__lvl">N2</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="espro-section" id="espro-form-area">
+    <div class="espro-form-top">
+      <div class="espro-kicker">05 — O teu convite</div>
+      <h3>Faltam poucos passos para <em>desbloqueares</em> o teu convite</h3>
+      <p>Preenche o básico e a nossa equipa entra em contacto contigo pelo WhatsApp para combinar o teu Jantar de Experiência na ESPRODOURO.</p>
+    </div>
+
+    <div class="espro-form-wrap">
+      <h3>Os teus <em>dados</em></h3>
+      <p class="espro-fsub">Só o essencial para começarmos a conversa. Rápido e sem complicações.</p>
+
+      <form class="espro-form" id="espro-form" novalidate>
+        <div class="espro-fld">
+          <label for="espro-nome">Nome completo</label>
+          <input type="text" id="espro-nome" name="nome" required placeholder="Primeiro e último nome">
+        </div>
+        <div class="espro-fld">
+          <label for="espro-ano">Ano letivo atual</label>
+          <select id="espro-ano" name="ano" required>
+            <option value="" disabled selected>Escolhe o teu ano</option>
+            <option value="8">8.º ano</option>
+            <option value="9">9.º ano</option>
+            <option value="10">10.º ano</option>
+          </select>
+        </div>
+        <div class="espro-fld">
+          <label id="espro-curso-lbl">Áreas de interesse <span class="espro-fld__hint">— podes escolher mais que uma</span></label>
+          <div class="espro-chips" role="group" aria-labelledby="espro-curso-lbl">
+            <label class="espro-chip"><input type="checkbox" name="curso" value="cozinha"><span>Cozinha e Restauração</span></label>
+            <label class="espro-chip"><input type="checkbox" name="curso" value="comunicacao"><span>Comunicação, Marketing e RP</span></label>
+            <label class="espro-chip"><input type="checkbox" name="curso" value="gestao"><span>Gestão e Administração</span></label>
+            <label class="espro-chip"><input type="checkbox" name="curso" value="eletronica"><span>Eletrónica e Automação</span></label>
+            <label class="espro-chip"><input type="checkbox" name="curso" value="enologia"><span>Enologia e Enoturismo</span></label>
+            <label class="espro-chip"><input type="checkbox" name="curso" value="conteudos"><span>Conteúdos Interativos</span></label>
+            <label class="espro-chip"><input type="checkbox" name="curso" value="cef"><span>CEF — Operador de Informática</span></label>
+            <label class="espro-chip"><input type="checkbox" name="curso" value="indeciso"><span>Ainda não sei</span></label>
+          </div>
+        </div>
+        <div class="espro-fld">
+          <label for="espro-tel">O teu WhatsApp</label>
+          <input type="tel" id="espro-tel" name="telefone" required placeholder="9XX XXX XXX" inputmode="numeric">
+          <p class="espro-fnote">Ao enviares, autorizas a equipa da ESPRODOURO a contactar-te pelo WhatsApp sobre o Jantar de Experiência.</p>
+        </div>
+
+        <div class="espro-ferr"></div>
+        <button type="submit" class="espro-btn">Falar com a Equipa de Admissões &rarr;</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+var f=document.getElementById('espro-form');if(!f)return;
+var err=f.querySelector('.espro-ferr');
+var v=function(n){return f.querySelector('[name="'+n+'"]').value.trim();};
+var vp=function(p){return /^9\d{8}$/.test(p)||/^\+?351?9\d{8}$/.test(p);};
+var s=function(m){err.textContent=m;err.style.display='block';return false;};
+f.addEventListener('submit',function(e){
+  e.preventDefault();err.style.display='none';
+  var nome=v('nome'),ano=v('ano'),tel=v('telefone');
+  var cursos=Array.prototype.map.call(f.querySelectorAll('input[name="curso"]:checked'),function(i){return i.value;});
+  var ph=tel.replace(/[\s+]/g,'');
+  if(!nome)return s('O teu nome é obrigatório.');
+  if(!ano)return s('Escolhe o teu ano letivo.');
+  if(!cursos.length)return s('Escolhe pelo menos uma área de interesse.');
+  if(!vp(ph))return s('Número de WhatsApp inválido (9 dígitos a começar por 9).');
+  var btn=f.querySelector('.espro-btn');btn.disabled=true;btn.textContent='A registar...';
+  var d=document.createElement('div');d.appendChild(document.createTextNode(nome.split(' ')[0]));
+  setTimeout(function(){
+    var sec=document.getElementById('espro-form-area');
+    sec.querySelector('.espro-form-wrap').outerHTML='<div class="espro-success"><div class="espro-success__c">&#10003;</div><h3>Tudo certo, <em>'+d.innerHTML+'</em>!</h3><p>A nossa equipa de admissões vai falar contigo pelo WhatsApp em breve para combinar o teu Jantar de Experiência. Fica atento ao telemóvel.</p></div>';
+    sec.querySelector('.espro-success').scrollIntoView({behavior:'smooth',block:'center'});
+  },500);
+});
+})();
+</script>

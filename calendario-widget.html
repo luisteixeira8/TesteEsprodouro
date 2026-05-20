@@ -1,0 +1,213 @@
+<style>
+.espro-cal *{box-sizing:border-box;margin:0;padding:0}
+.espro-cal{--ac:#e8383e;--dk:#171927;--tx:#1e1e1e;--t2:#555;--bd:#e5e5e5;font-family:inherit;color:var(--tx);line-height:1.55;-webkit-text-size-adjust:100%}
+
+.espro-cal__head{padding:28px 0 24px}
+.espro-cal__eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:16px}
+.espro-cal__head h2{font-weight:300;font-size:26px;line-height:1.1;letter-spacing:-0.03em;margin-bottom:10px}
+.espro-cal__head h2 em{font-style:italic;font-weight:600;color:var(--ac)}
+.espro-cal__lead{font-size:14px;line-height:1.6;color:var(--t2)}
+
+.espro-cal__list{list-style:none;display:flex;flex-direction:column;gap:10px;padding-top:4px}
+
+.espro-cal__card{background:#fff;border:1px solid var(--bd);border-radius:12px;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:border-color .15s,box-shadow .15s}
+.espro-cal__card:active{border-color:rgba(232,56,62,.3)}
+.espro-cal__card.is-open{border-color:var(--ac);box-shadow:0 2px 12px rgba(232,56,62,.1);cursor:default}
+
+.espro-cal__card-top{display:flex;align-items:center;gap:12px;padding:16px}
+.espro-cal__ic{width:44px;height:44px;background:rgba(232,56,62,.07);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ac);transition:background .15s}
+.espro-cal__ic svg{width:22px;height:22px}
+.espro-cal__card.is-open .espro-cal__ic{background:var(--ac)}
+.espro-cal__card.is-open .espro-cal__ic svg{color:#fff}
+.espro-cal__info{flex:1;min-width:0}
+.espro-cal__name{font-size:14px;font-weight:600;color:var(--tx);line-height:1.3}
+.espro-cal__card.is-open .espro-cal__name{color:var(--ac)}
+.espro-cal__meta{font-size:11px;color:var(--t2);margin-top:3px}
+
+.espro-cal__actions{display:flex;gap:8px;flex-shrink:0}
+.espro-cal__btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 14px;font-family:inherit;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--bd);border-radius:8px;background:#fff;color:var(--tx);cursor:pointer;text-decoration:none;line-height:1;-webkit-tap-highlight-color:transparent;transition:border-color .15s,background .15s,color .15s}
+.espro-cal__btn:active{opacity:.85}
+.espro-cal__btn--view:hover{border-color:var(--ac);color:var(--ac)}
+.espro-cal__btn--dl{background:var(--ac);border-color:var(--ac);color:#fff}
+.espro-cal__btn--dl:hover{background:#cf2f34;border-color:#cf2f34;color:#fff}
+.espro-cal__btn svg{width:16px;height:16px;flex-shrink:0}
+
+.espro-cal__embed{display:none;border-top:1px solid var(--bd);background:#f4f4f4;position:relative}
+.espro-cal__card.is-open .espro-cal__embed{display:block}
+.espro-cal__embed iframe{width:100%;border:0;display:block}
+.espro-cal__embed-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff;border-bottom:1px solid var(--bd)}
+.espro-cal__embed-title{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.espro-cal__embed-close{background:none;border:none;cursor:pointer;color:var(--t2);font-size:20px;line-height:1;padding:6px;flex-shrink:0;border-radius:6px;transition:color .15s,background .15s}
+.espro-cal__embed-close:hover{color:var(--ac);background:rgba(232,56,62,.06)}
+
+@media(max-width:767px){
+  .espro-cal__card-top{flex-wrap:wrap}
+  .espro-cal__actions{width:100%;display:flex;gap:8px}
+  .espro-cal__actions .espro-cal__btn{flex:1}
+  .espro-cal__embed iframe{height:50vh;min-height:300px}
+}
+@media(min-width:768px){
+  .espro-cal__head{padding:52px 0 36px}
+  .espro-cal__head h2{font-size:clamp(30px,4vw,42px)}
+  .espro-cal__lead{font-size:16px;max-width:520px}
+  .espro-cal__list{gap:12px}
+  .espro-cal__card-top{padding:18px 20px}
+  .espro-cal__name{font-size:15px}
+  .espro-cal__btn{padding:10px 18px;border-radius:6px}
+  .espro-cal__embed iframe{height:700px}
+  .espro-cal__embed-bar{padding:12px 20px}
+}
+</style>
+
+<div class="espro-cal">
+  <div class="espro-cal__head">
+    <div class="espro-cal__eyebrow">Ano letivo 2025 / 2026</div>
+    <h2>Calendário <em>Escolar</em></h2>
+    <p class="espro-cal__lead">Consulta ou transfere os calendários escolares em vigor.</p>
+  </div>
+
+  <ul class="espro-cal__list" id="esproCals">
+    <li class="espro-cal__card" data-pdf="https://esprodouro.com/wp-content/uploads/2025/09/Calendario-Escolar-2025_2026-Partilhado-2-2.pdf">
+      <div class="espro-cal__card-top">
+        <div class="espro-cal__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="espro-cal__info">
+          <div class="espro-cal__name">Calendário Partilhado (2-2)</div>
+          <div class="espro-cal__meta">PDF · 2025/2026</div>
+        </div>
+        <div class="espro-cal__actions">
+          <button type="button" class="espro-cal__btn espro-cal__btn--view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Ver</button>
+          <a class="espro-cal__btn espro-cal__btn--dl" href="https://esprodouro.com/wp-content/uploads/2025/09/Calendario-Escolar-2025_2026-Partilhado-2-2.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Transferir</a>
+        </div>
+      </div>
+      <div class="espro-cal__embed">
+        <div class="espro-cal__embed-bar">
+          <span class="espro-cal__embed-title">Pré-visualização</span>
+          <button type="button" class="espro-cal__embed-close" aria-label="Fechar">&times;</button>
+        </div>
+        <iframe title="Pré-visualização do calendário"></iframe>
+      </div>
+    </li>
+    <li class="espro-cal__card" data-pdf="https://esprodouro.com/wp-content/uploads/2025/09/Calendario-Escolar-2025_2026-Partilhado-2-1.pdf">
+      <div class="espro-cal__card-top">
+        <div class="espro-cal__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="espro-cal__info">
+          <div class="espro-cal__name">Calendário Partilhado (2-1)</div>
+          <div class="espro-cal__meta">PDF · 2025/2026</div>
+        </div>
+        <div class="espro-cal__actions">
+          <button type="button" class="espro-cal__btn espro-cal__btn--view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Ver</button>
+          <a class="espro-cal__btn espro-cal__btn--dl" href="https://esprodouro.com/wp-content/uploads/2025/09/Calendario-Escolar-2025_2026-Partilhado-2-1.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Transferir</a>
+        </div>
+      </div>
+      <div class="espro-cal__embed">
+        <div class="espro-cal__embed-bar">
+          <span class="espro-cal__embed-title">Pré-visualização</span>
+          <button type="button" class="espro-cal__embed-close" aria-label="Fechar">&times;</button>
+        </div>
+        <iframe title="Pré-visualização do calendário"></iframe>
+      </div>
+    </li>
+    <li class="espro-cal__card" data-pdf="https://esprodouro.com/wp-content/uploads/2025/09/Calendario-Escolar-2025_2026-Partilhado-2.pdf">
+      <div class="espro-cal__card-top">
+        <div class="espro-cal__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="espro-cal__info">
+          <div class="espro-cal__name">Calendário Partilhado (2)</div>
+          <div class="espro-cal__meta">PDF · 2025/2026</div>
+        </div>
+        <div class="espro-cal__actions">
+          <button type="button" class="espro-cal__btn espro-cal__btn--view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Ver</button>
+          <a class="espro-cal__btn espro-cal__btn--dl" href="https://esprodouro.com/wp-content/uploads/2025/09/Calendario-Escolar-2025_2026-Partilhado-2.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Transferir</a>
+        </div>
+      </div>
+      <div class="espro-cal__embed">
+        <div class="espro-cal__embed-bar">
+          <span class="espro-cal__embed-title">Pré-visualização</span>
+          <button type="button" class="espro-cal__embed-close" aria-label="Fechar">&times;</button>
+        </div>
+        <iframe title="Pré-visualização do calendário"></iframe>
+      </div>
+    </li>
+    <li class="espro-cal__card" data-pdf="https://esprodouro.com/wp-content/uploads/2025/09/Calendario-Escolar-2025_2026-Partilhado-12.o-TV1-1.pdf">
+      <div class="espro-cal__card-top">
+        <div class="espro-cal__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="espro-cal__info">
+          <div class="espro-cal__name">Calendário 12.º TV1 (v2)</div>
+          <div class="espro-cal__meta">PDF · 2025/2026</div>
+        </div>
+        <div class="espro-cal__actions">
+          <button type="button" class="espro-cal__btn espro-cal__btn--view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Ver</button>
+          <a class="espro-cal__btn espro-cal__btn--dl" href="https://esprodouro.com/wp-content/uploads/2025/09/Calendario-Escolar-2025_2026-Partilhado-12.o-TV1-1.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Transferir</a>
+        </div>
+      </div>
+      <div class="espro-cal__embed">
+        <div class="espro-cal__embed-bar">
+          <span class="espro-cal__embed-title">Pré-visualização</span>
+          <button type="button" class="espro-cal__embed-close" aria-label="Fechar">&times;</button>
+        </div>
+        <iframe title="Pré-visualização do calendário"></iframe>
+      </div>
+    </li>
+    <li class="espro-cal__card" data-pdf="https://esprodouro.com/wp-content/uploads/2025/09/Calendario-Escolar-2025_2026-Partilhado-12.o-TV1.pdf">
+      <div class="espro-cal__card-top">
+        <div class="espro-cal__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="espro-cal__info">
+          <div class="espro-cal__name">Calendário 12.º TV1</div>
+          <div class="espro-cal__meta">PDF · 2025/2026</div>
+        </div>
+        <div class="espro-cal__actions">
+          <button type="button" class="espro-cal__btn espro-cal__btn--view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Ver</button>
+          <a class="espro-cal__btn espro-cal__btn--dl" href="https://esprodouro.com/wp-content/uploads/2025/09/Calendario-Escolar-2025_2026-Partilhado-12.o-TV1.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Transferir</a>
+        </div>
+      </div>
+      <div class="espro-cal__embed">
+        <div class="espro-cal__embed-bar">
+          <span class="espro-cal__embed-title">Pré-visualização</span>
+          <button type="button" class="espro-cal__embed-close" aria-label="Fechar">&times;</button>
+        </div>
+        <iframe title="Pré-visualização do calendário"></iframe>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script>
+(function(){
+  var cards=document.querySelectorAll('#esproCals .espro-cal__card');
+
+  function closeCard(card){
+    card.classList.remove('is-open');
+    var fr=card.querySelector('.espro-cal__embed iframe');
+    if(fr)fr.src='';
+  }
+
+  function openCard(card){
+    for(var i=0;i<cards.length;i++){
+      if(cards[i]!==card)closeCard(cards[i]);
+    }
+    var url=card.getAttribute('data-pdf');
+    if(card.classList.contains('is-open')){
+      closeCard(card);return;
+    }
+    card.classList.add('is-open');
+    card.querySelector('.espro-cal__embed iframe').src=url;
+    card.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+
+  for(var i=0;i<cards.length;i++){
+    (function(card){
+      card.querySelector('.espro-cal__btn--view').addEventListener('click',function(e){
+        e.stopPropagation();openCard(card);
+      });
+      card.querySelector('.espro-cal__embed-close').addEventListener('click',function(e){
+        e.stopPropagation();closeCard(card);
+      });
+      card.addEventListener('click',function(e){
+        if(e.target.closest('.espro-cal__btn--dl'))return;
+        if(e.target.closest('.espro-cal__btn--view'))return;
+        if(e.target.closest('.espro-cal__embed'))return;
+        openCard(card);
+      });
+    })(cards[i]);
+  }
+})();
+</script>

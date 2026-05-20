@@ -1,0 +1,506 @@
+<style>
+.eh-hist *{box-sizing:border-box;margin:0;padding:0}
+.eh-hist{
+  --ink:#1a1816;
+  --ink-soft:#5a534a;
+  --mute:#8f8a84;
+  --bg:#ffffff;
+  --tint:#f7f7f5;
+  --ac:#e8383e;
+  --vine:#4A5D3F;
+  --line:rgba(26,24,22,0.10);
+  --line-strong:rgba(26,24,22,0.28);
+  font-family:inherit;
+  color:var(--ink);
+  line-height:1.6;
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  width:100%;
+}
+.eh-hist a{color:inherit}
+.eh-hist img{max-width:100%;display:block;height:auto}
+.eh-hist ol,.eh-hist ul{list-style:none}
+
+.eh-hist__wrap{padding:0 20px}
+
+/* Type primitives */
+.eh-hist .eyebrow{
+  font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ac);display:inline-flex;align-items:center;gap:12px;
+}
+.eh-hist .eyebrow::before{content:"";width:22px;height:2px;background:currentColor}
+.eh-hist .display{font-weight:300;font-size:40px;line-height:1;letter-spacing:-0.03em}
+.eh-hist .display em{font-style:italic;font-weight:400;color:var(--ac)}
+
+.eh-hist .section-head{margin-bottom:28px}
+.eh-hist .section-head h2{font-weight:400;font-size:28px;line-height:1.08;letter-spacing:-0.022em}
+.eh-hist .section-head h2 em{font-style:italic;color:var(--ac);font-weight:400}
+
+/* Hero */
+.eh-hist .hero{padding:44px 0 56px}
+.eh-hist .hero h1{margin:18px 0 22px}
+.eh-hist .hero__lead{font-size:16px;line-height:1.65;color:var(--ink-soft);max-width:640px}
+.eh-hist .hero__meta{
+  margin-top:30px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);
+}
+.eh-hist .hero__meta b{font-weight:700;color:var(--ink);letter-spacing:.06em}
+.eh-hist .hero__meta .dot{width:3px;height:3px;background:var(--ac);border-radius:50%;flex-shrink:0}
+
+.eh-hist .section{padding:52px 0}
+
+/* Director */
+.eh-hist .director{display:grid;grid-template-columns:1fr;gap:28px}
+.eh-hist .director figure{max-width:360px}
+.eh-hist .director img{width:100%;border:1px solid var(--line);background:var(--tint)}
+.eh-hist .director figcaption{
+  margin-top:14px;display:flex;flex-direction:column;gap:4px;
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);
+}
+.eh-hist .director figcaption strong{color:var(--ink);font-weight:700;font-size:12.5px;letter-spacing:.1em}
+.eh-hist .director .quote{
+  font-weight:300;font-size:24px;line-height:1.2;letter-spacing:-0.02em;
+  margin-bottom:22px;font-style:italic;
+}
+.eh-hist .director .quote em{color:var(--ac);font-weight:500}
+.eh-hist .director .sig{
+  margin-top:24px;padding-top:16px;border-top:2px solid var(--ac);
+  display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+}
+
+/* Prose & lede */
+.eh-hist .prose{max-width:760px}
+.eh-hist .prose p,.eh-hist .director .prose p{font-size:15.5px;line-height:1.78;margin-bottom:16px;color:var(--ink-soft)}
+.eh-hist .prose p:last-child,.eh-hist .director .prose p:last-child{margin-bottom:0}
+.eh-hist .prose em,.eh-hist .lede em{font-style:italic;color:var(--ac)}
+.eh-hist .lede{max-width:760px;margin-bottom:32px;font-size:16px;line-height:1.7;color:var(--ink-soft)}
+
+/* Skills duel */
+.eh-hist .duel{display:grid;grid-template-columns:1fr;gap:32px}
+.eh-hist .duel__divider{display:none}
+.eh-hist .duel h3{
+  font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  margin-bottom:18px;display:flex;align-items:center;gap:10px;
+}
+.eh-hist .duel h3::before{content:"";width:8px;height:8px;display:inline-block}
+.eh-hist .duel .rise h3{color:var(--vine)}
+.eh-hist .duel .rise h3::before{background:var(--vine)}
+.eh-hist .duel .fall h3{color:var(--ac)}
+.eh-hist .duel .fall h3::before{background:var(--ac);transform:rotate(45deg)}
+.eh-hist .duel ol{counter-reset:item}
+.eh-hist .duel li{
+  counter-increment:item;font-size:14.5px;line-height:1.5;padding:14px 0;
+  border-top:1px solid var(--line);display:grid;grid-template-columns:30px 1fr;gap:14px;
+}
+.eh-hist .duel li:last-child{border-bottom:1px solid var(--line)}
+.eh-hist .duel li::before{
+  content:counter(item,decimal-leading-zero);
+  font-size:10.5px;font-weight:700;letter-spacing:.1em;color:var(--ac);padding-top:4px;
+}
+.eh-hist .duel .fall li{color:var(--mute)}
+.eh-hist .duel .fall li>span{
+  text-decoration:line-through;text-decoration-color:rgba(232,56,62,.55);text-decoration-thickness:1px;
+}
+
+/* Pull quote */
+.eh-hist .quote-block{
+  padding:64px 20px;text-align:center;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--tint);
+}
+.eh-hist .quote-block p{
+  font-weight:300;font-size:22px;line-height:1.22;letter-spacing:-0.02em;
+  font-style:italic;max-width:1100px;margin:0 auto;
+}
+.eh-hist .quote-block p em{color:var(--ac);font-weight:500}
+.eh-hist .quote-block cite{
+  display:block;margin-top:24px;font-size:10.5px;letter-spacing:.22em;
+  text-transform:uppercase;font-style:normal;color:var(--mute);
+}
+.eh-hist .quote-block cite::before{content:"";display:inline-block;width:24px;height:1px;background:var(--ac);vertical-align:middle;margin-right:12px}
+
+/* Exponentiate */
+.eh-hist .expo{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:30px}
+.eh-hist .expo__item{
+  background:var(--tint);border:1px solid var(--line);padding:24px 14px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.eh-hist .expo__item::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--ac);
+  transform:scaleX(.2);transform-origin:left center;
+}
+.eh-hist .expo__item:nth-child(2)::after{transform:scaleX(.4)}
+.eh-hist .expo__item:nth-child(3)::after{transform:scaleX(.65)}
+.eh-hist .expo__item:nth-child(4)::after{transform:scaleX(.95)}
+.eh-hist .expo__n{
+  font-size:46px;font-weight:300;line-height:1;margin-bottom:12px;
+  color:var(--ac);letter-spacing:-0.03em;font-style:italic;
+}
+.eh-hist .expo__n sup{font-size:.5em;font-weight:400;font-style:normal;margin-left:2px}
+.eh-hist .expo__label{
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;line-height:1.5;
+}
+.eh-hist .expo-conclude{
+  font-weight:300;font-size:18px;line-height:1.45;font-style:italic;
+  max-width:900px;color:var(--ink-soft);
+}
+.eh-hist .expo-conclude em{color:var(--ac);font-weight:500}
+
+/* Timeline */
+.eh-hist .tl{display:flex;flex-direction:column}
+.eh-hist .tl__ev{
+  display:grid;grid-template-columns:1fr;gap:8px;padding:22px 0;
+  border-top:1px solid var(--line);align-items:start;
+}
+.eh-hist .tl__ev:last-child{border-bottom:1px solid var(--line)}
+.eh-hist .tl__year{
+  font-size:24px;font-weight:400;letter-spacing:-0.01em;color:var(--ac);
+  line-height:1;font-style:italic;
+}
+.eh-hist .tl__year sup{font-size:.42em;color:var(--ink-soft);font-weight:400;font-style:normal;margin-left:2px}
+.eh-hist .tl__body h3{font-weight:600;font-size:16px;margin-bottom:8px;line-height:1.35;color:var(--ink)}
+.eh-hist .tl__body p{color:var(--ink-soft);font-size:14.5px;line-height:1.7}
+
+/* Audience */
+.eh-hist .aud{display:grid;grid-template-columns:1fr;gap:26px;align-items:start}
+.eh-hist .aud__text p{margin-bottom:18px;font-size:15.5px;line-height:1.78;color:var(--ink-soft)}
+.eh-hist .aud__text p:last-child{margin-bottom:0}
+.eh-hist .aud__text em{font-style:italic;color:var(--ac)}
+.eh-hist .aud__meta{
+  background:var(--tint);border:1px solid var(--line);padding:24px 20px;
+  display:flex;flex-direction:column;gap:20px;
+}
+.eh-hist .gen{display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:center}
+.eh-hist .gen__mark{
+  font-size:38px;font-weight:300;line-height:1;color:var(--ac);
+  width:64px;height:64px;border:1px solid var(--ac);background:var(--bg);
+  display:flex;align-items:center;justify-content:center;font-style:italic;
+}
+.eh-hist .gen__name{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;display:block}
+.eh-hist .gen__years{font-size:10.5px;letter-spacing:.18em;color:var(--mute);text-transform:uppercase;display:block;margin-top:6px}
+.eh-hist .aud__rule{height:1px;background:var(--line)}
+
+/* Slogan */
+.eh-hist .slogan{
+  padding:64px 20px;text-align:center;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.eh-hist .slogan p{font-weight:300;font-size:36px;line-height:1.06;letter-spacing:-0.035em;font-style:italic}
+.eh-hist .slogan p em{color:var(--ac);font-weight:400}
+.eh-hist .slogan .from{
+  margin-top:22px;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);
+}
+
+/* Reveal */
+.eh-hist .reveal{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease}
+.eh-hist .reveal.in{opacity:1;transform:none}
+
+/* ====== TABLET (≥640px) ====== */
+@media(min-width:640px){
+  .eh-hist__wrap{padding:0 36px}
+  .eh-hist .display{font-size:64px}
+  .eh-hist .hero{padding:64px 0 80px}
+  .eh-hist .hero h1{margin:22px 0 28px}
+  .eh-hist .hero__lead{font-size:17.5px}
+  .eh-hist .hero__meta{margin-top:48px;padding-top:24px;font-size:10.5px}
+  .eh-hist .section{padding:72px 0}
+  .eh-hist .section-head{margin-bottom:36px}
+  .eh-hist .section-head h2{font-size:38px}
+  .eh-hist .director{grid-template-columns:1fr 1.4fr;gap:48px}
+  .eh-hist .director figure{max-width:none}
+  .eh-hist .director .quote{font-size:30px;margin-bottom:28px}
+  .eh-hist .prose p,.eh-hist .director .prose p{font-size:16px}
+  .eh-hist .lede{font-size:17px;margin-bottom:40px}
+  .eh-hist .duel{grid-template-columns:1fr 1px 1fr;gap:40px}
+  .eh-hist .duel__divider{display:block;background:var(--line-strong)}
+  .eh-hist .duel h3{font-size:11.5px;margin-bottom:22px}
+  .eh-hist .duel li{font-size:15px;padding:15px 0;grid-template-columns:34px 1fr;gap:16px}
+  .eh-hist .quote-block{padding:90px 36px}
+  .eh-hist .quote-block p{font-size:30px}
+  .eh-hist .quote-block cite{margin-top:32px}
+  .eh-hist .expo{grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:44px}
+  .eh-hist .expo__item{padding:32px 18px}
+  .eh-hist .expo__n{font-size:58px;margin-bottom:16px}
+  .eh-hist .expo__label{font-size:11px}
+  .eh-hist .expo-conclude{font-size:22px}
+  .eh-hist .tl__ev{grid-template-columns:140px 1fr;gap:40px;padding:30px 0}
+  .eh-hist .tl__year{font-size:30px}
+  .eh-hist .tl__body h3{font-size:17px}
+  .eh-hist .tl__body p{font-size:15px}
+  .eh-hist .aud{grid-template-columns:1.4fr 1fr;gap:48px}
+  .eh-hist .aud__text p{font-size:16px}
+  .eh-hist .aud__meta{padding:32px 26px;gap:24px}
+  .eh-hist .gen{grid-template-columns:80px 1fr;gap:22px}
+  .eh-hist .gen__mark{width:80px;height:80px;font-size:46px}
+  .eh-hist .gen__name{font-size:14px}
+  .eh-hist .slogan{padding:100px 36px}
+  .eh-hist .slogan p{font-size:54px}
+  .eh-hist .slogan .from{margin-top:30px}
+}
+
+/* ====== DESKTOP (≥1024px) ====== */
+@media(min-width:1024px){
+  .eh-hist__wrap{padding:0 64px}
+  .eh-hist .display{font-size:96px}
+  .eh-hist .hero{padding:112px 0 128px}
+  .eh-hist .hero h1{margin:30px 0 38px}
+  .eh-hist .hero__lead{font-size:19px;max-width:680px}
+  .eh-hist .hero__meta{margin-top:64px;padding-top:28px;gap:18px;font-size:11px}
+  .eh-hist .section{padding:104px 0}
+  .eh-hist .section-head{margin-bottom:48px}
+  .eh-hist .section-head h2{font-size:48px}
+  .eh-hist .director{grid-template-columns:minmax(320px,1fr) 2fr;gap:80px}
+  .eh-hist .director figure{max-width:480px}
+  .eh-hist .director .quote{font-size:42px;margin-bottom:36px}
+  .eh-hist .director .prose p{font-size:16.5px;line-height:1.8}
+  .eh-hist .director .sig{margin-top:32px;padding-top:18px;font-size:11px}
+  .eh-hist .prose{max-width:820px}
+  .eh-hist .prose p{font-size:17px;line-height:1.85}
+  .eh-hist .lede{font-size:18px;max-width:820px;margin-bottom:56px}
+  .eh-hist .duel{gap:80px}
+  .eh-hist .duel h3{font-size:12px;margin-bottom:26px}
+  .eh-hist .duel li{font-size:15.5px;padding:17px 0;grid-template-columns:42px 1fr;gap:20px}
+  .eh-hist .duel li::before{font-size:11px}
+  .eh-hist .quote-block{padding:140px 64px}
+  .eh-hist .quote-block p{font-size:52px}
+  .eh-hist .quote-block cite{margin-top:44px;font-size:11px}
+  .eh-hist .expo{gap:22px;margin-bottom:64px}
+  .eh-hist .expo__item{padding:48px 24px}
+  .eh-hist .expo__n{font-size:82px;margin-bottom:22px}
+  .eh-hist .expo__label{font-size:12px}
+  .eh-hist .expo-conclude{font-size:26px;max-width:1000px}
+  .eh-hist .tl__ev{grid-template-columns:200px 1fr;gap:72px;padding:42px 0}
+  .eh-hist .tl__year{font-size:38px}
+  .eh-hist .tl__body h3{font-size:20px;margin-bottom:10px}
+  .eh-hist .tl__body p{font-size:15.5px;line-height:1.7}
+  .eh-hist .aud{grid-template-columns:2fr 1fr;gap:96px}
+  .eh-hist .aud__text p{font-size:17px;line-height:1.8;margin-bottom:20px}
+  .eh-hist .aud__meta{padding:44px 34px;gap:32px}
+  .eh-hist .gen{grid-template-columns:96px 1fr;gap:26px}
+  .eh-hist .gen__mark{width:96px;height:96px;font-size:58px}
+  .eh-hist .gen__name{font-size:15px}
+  .eh-hist .slogan{padding:144px 64px}
+  .eh-hist .slogan p{font-size:80px}
+  .eh-hist .slogan .from{margin-top:40px;font-size:11px}
+}
+
+/* ====== WIDE (≥1600px) ====== */
+@media(min-width:1600px){
+  .eh-hist__wrap{padding:0 clamp(64px,7vw,160px)}
+  .eh-hist .display{font-size:128px}
+  .eh-hist .section-head h2{font-size:56px}
+  .eh-hist .director .quote{font-size:48px}
+  .eh-hist .quote-block p{font-size:60px}
+  .eh-hist .slogan p{font-size:100px}
+  .eh-hist .expo__n{font-size:92px}
+}
+</style>
+
+<div class="eh-hist">
+
+  <div class="eh-hist__wrap">
+
+    <section class="hero reveal">
+      <p class="eyebrow">São João da Pesqueira · Alto Douro</p>
+      <h1 class="display">A história<br>de uma <em>escola</em><br>de sonhos.</h1>
+      <p class="hero__lead">A ESPRODOURO é a escola para os alunos que não gostam da escola. Desde 1995, no coração do Douro Vinhateiro, formamos pessoas — não apenas profissionais.</p>
+      <div class="hero__meta">
+        <span>Fundada em <b>1995</b></span>
+        <span class="dot"></span>
+        <span>Autorização Prévia <b>n.º 73</b></span>
+        <span class="dot"></span>
+        <span>Decreto-Lei <b>92/2014</b></span>
+        <span class="dot"></span>
+        <span>ASDOURO</span>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <header class="section-head"><h2>Mensagem do <em>diretor</em></h2></header>
+      <div class="director">
+        <figure>
+          <img src="https://esprodouro.com/wp-content/uploads/2020/04/fernando-rodrigues.webp" alt="Fernando Rodrigues, Diretor da ESPRODOURO" loading="lazy">
+          <figcaption>
+            <strong>Fernando Rodrigues</strong>
+            <span>Diretor · ESPRODOURO</span>
+          </figcaption>
+        </figure>
+        <div>
+          <p class="quote">"ESPRODOURO quer ser uma <em>escola de sonhos</em>!"</p>
+          <div class="prose">
+            <p>A ESPRODOURO começou em 2018 uma renovação para um novo caminho, após anos de vários desafios. Em 2018 e 2019, decidiu assumir-se como uma escola de reestruturação, reinvenção e renovação em todos os sentidos, com um trabalho hercúleo de base.</p>
+            <p>Agora, para 2025, a ESPRODOURO quer ser uma escola de sonhos. Queremos proporcionar sonhos e formar sonhadores; queremos alunos de excelência, mas alunos felizes; queremos melhorar a comunidade e internacionalizar o Alto Douro; queremos crescer e evoluir no mundo da educação, sendo uma escola de referência pedagógica a nível nacional.</p>
+            <p>Por esse motivo, o nosso desafio é exponencializar: alunos ao quadrado, crescimento pedagógico ao cubo, evolução pessoal de cada aluno ao quádruplo e a experiência de ensino e profissional ao quíntuplo. Queremos ser mais, melhor — mas acima de tudo, criadores de sonhos felizes.</p>
+            <p>Precisamos de todos, envolvidos nesta nossa família de sonhadores, que pretendem desafiar todos os intervenientes a que o seu sonho seja o nosso desafio.</p>
+          </div>
+          <span class="sig">Fernando Rodrigues · Diretor</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <header class="section-head"><h2>O contexto da <em>mudança</em></h2></header>
+      <div class="prose">
+        <p>O Decreto-Lei n.º 43/89, de 3 de fevereiro, define o princípio de que "a autonomia da escola concretiza-se na elaboração de um projeto educativo próprio, constituído e executado de forma participada, dentro de princípios de responsabilização dos vários intervenientes na vida escolar e de adequação às características e recursos da escola e às solicitações e apoios da comunidade em que se insere."</p>
+        <p>Para fazer face aos desafios do século XXI no que toca ao ensino e formação profissional, é imperativo repensar os seus métodos, estratégias e conceções. É necessário avançar num processo inovador, ousando romper com quadros mentais e metodologias do passado.</p>
+        <p>Reinventar, adaptar e ajustar as práticas pedagógicas ao mundo global em que vivemos é o desafio permanente do ensino, em geral, e do ensino profissional, em particular. É esta reflexão que nos propõe <em>Xavier Aragay</em>, fundador do Reimagine Education Lab — um projeto que nos convida a observar de um ponto de vista mais alto, com amplitude, captando a diversidade das realidades observadas.</p>
+        <p>Esta capacidade de observar e trabalhar, individual e coletivamente, em função do meio e do indivíduo holisticamente, é essencial para o progresso do ensino profissional que queremos para o século XXI.</p>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <header class="section-head"><h2>Dez habilidades para <em>2022</em></h2></header>
+      <p class="lede">Segundo o <em>Future of Jobs Report</em> do Economic World Forum (2018), o ensino profissional do século XXI tem de equilibrar o que sobe — e o que desaparece.</p>
+      <div class="duel">
+        <div class="rise">
+          <h3>Em ascensão</h3>
+          <ol>
+            <li><span>Pensamento analítico e inovação</span></li>
+            <li><span>Aprendizagem ativa e estratégias de aprendizagem individual</span></li>
+            <li><span>Criatividade, originalidade e iniciativa</span></li>
+            <li><span>Design de tecnologia e programação</span></li>
+            <li><span>Pensamento crítico e análise</span></li>
+            <li><span>Capacidade de resolução de problemas complexos</span></li>
+            <li><span>Liderança e influência social</span></li>
+            <li><span>Inteligência emocional</span></li>
+            <li><span>Raciocínio, resolução de problemas e ideação</span></li>
+            <li><span>Análise de sistemas e avaliação</span></li>
+          </ol>
+        </div>
+        <div class="duel__divider"></div>
+        <div class="fall">
+          <h3>Em declínio</h3>
+          <ol>
+            <li><span>Destreza manual, resistência e precisão</span></li>
+            <li><span>Habilidades de memória, auditivas, verbais e espaciais</span></li>
+            <li><span>Gestão de recursos financeiros e materiais</span></li>
+            <li><span>Instalações tecnológicas e manutenção</span></li>
+            <li><span>Leitura, escrita, matemática e escuta ativa</span></li>
+            <li><span>Gestão de recursos humanos</span></li>
+            <li><span>Controlo de qualidade e consciencialização de segurança</span></li>
+            <li><span>Coordenação e gestão de tempo</span></li>
+            <li><span>Habilidades visuais, auditivas e de discurso</span></li>
+            <li><span>Uso, monitorização e controlo de tecnologia</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="quote-block reveal">
+    <p>Conhecimento é saber que o tomate é um fruto. <em>Sabedoria</em> é saber que a salada de frutas não leva tomate.</p>
+    <cite>João Costa · Secretário de Estado da Educação</cite>
+  </section>
+
+  <div class="eh-hist__wrap">
+
+    <section class="section reveal">
+      <header class="section-head"><h2><em>Exponenciar</em></h2></header>
+      <p class="lede">O nosso desafio é exponenciar uma <em>atitude com felicidade</em>. Não somar — multiplicar. Não preparar — formar sonhadores.</p>
+      <div class="expo">
+        <div class="expo__item"><div class="expo__n">x<sup>2</sup></div><div class="expo__label">Alunos<br>ao quadrado</div></div>
+        <div class="expo__item"><div class="expo__n">x<sup>3</sup></div><div class="expo__label">Crescimento pedagógico<br>ao cubo</div></div>
+        <div class="expo__item"><div class="expo__n">x<sup>4</sup></div><div class="expo__label">Evolução pessoal<br>ao quádruplo</div></div>
+        <div class="expo__item"><div class="expo__n">x<sup>5</sup></div><div class="expo__label">Experiência de ensino<br>ao quíntuplo</div></div>
+      </div>
+      <p class="expo-conclude">Uma escola com base nos <em>afetos</em>, focada no trabalho em grupo por projetos, baseada em problemas e estudos de caso — com o compromisso de ajudar os alunos a crescerem e os profissionais do ecossistema escolar a terem um futuro com qualidade de vida.</p>
+    </section>
+
+    <section class="section reveal">
+      <header class="section-head"><h2>A nossa <em>casa</em></h2></header>
+      <div class="prose" style="margin-bottom:44px">
+        <p>A ESPRODOURO – Escola Profissional do Alto Douro, cuja entidade proprietária é a <em>ASDOURO</em> – Associação de Desenvolvimento do Ensino e Formação Profissional do Alto Douro, tem a sua sede na Rua Oliveira dos Amores, em São João da Pesqueira.</p>
+        <p>Tem por finalidade ministrar formação profissional e outras atividades educativas no âmbito do Decreto-Lei 92/2014 de 20 de junho, com Autorização Prévia de Funcionamento n.º 73 desde 1995. Dispõe, desde 2001, de um Gabinete de Inserção na Vida Ativa, mantendo uma relação de proximidade com entidades recetoras e empregadoras — diagnósticos de necessidades dão origem a propostas de planos de formação à medida.</p>
+      </div>
+      <div class="tl">
+        <article class="tl__ev">
+          <time class="tl__year">1995</time>
+          <div class="tl__body">
+            <h3>Autorização Prévia de Funcionamento n.º 73</h3>
+            <p>A ESPRODOURO abre portas em São João da Pesqueira, com a ASDOURO como entidade proprietária, ao abrigo do enquadramento legal do ensino profissional português.</p>
+          </div>
+        </article>
+        <article class="tl__ev">
+          <time class="tl__year">2001</time>
+          <div class="tl__body">
+            <h3>Gabinete de Inserção na Vida Ativa</h3>
+            <p>Aproximação a entidades recetoras de formandos em formação em contexto de trabalho e a entidades empregadoras. Os diagnósticos de necessidades passam a construir os planos de formação.</p>
+          </div>
+        </article>
+        <article class="tl__ev">
+          <time class="tl__year">2018</time>
+          <div class="tl__body">
+            <h3>"A escola para os alunos que não gostam da escola."</h3>
+            <p>Renovação profunda: novos métodos, novo slogan — "O teu sonho é o nosso desafio!" Foco em metodologias diferenciadas para as gerações Z e Alpha.</p>
+          </div>
+        </article>
+        <article class="tl__ev">
+          <time class="tl__year">2019<sup>—22</sup></time>
+          <div class="tl__body">
+            <h3>Projeto Educativo & Quadro EQAVET</h3>
+            <p>Compromisso com a qualidade da oferta de ensino e formação profissional, alinhado com os preceitos do Quadro EQAVET europeu — um documento interno de melhoria contínua.</p>
+          </div>
+        </article>
+        <article class="tl__ev">
+          <time class="tl__year">2025</time>
+          <div class="tl__body">
+            <h3>Escola de Sonhos</h3>
+            <p>Crescimento pedagógico, evolução pessoal e experiência de ensino profissional real. Internacionalização do Alto Douro e referência pedagógica a nível nacional.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </div>
+
+  <section class="slogan reveal">
+    <p>O teu sonho<br>é o nosso <em>desafio</em>.</p>
+    <span class="from">Slogan ESPRODOURO · desde 2018</span>
+  </section>
+
+  <div class="eh-hist__wrap">
+
+    <section class="section reveal">
+      <header class="section-head"><h2>Para quem fazemos <em>isto</em></h2></header>
+      <div class="aud">
+        <div class="aud__text">
+          <p>Em 2018, assumimos ser a <em>escola para os alunos que não gostam da escola</em>. Esta afirmação destinou-se a mostrar que esta escola é diferente nas metodologias de ensino, reforçando que podemos gostar de estar na escola e que é possível desfrutar do ensino.</p>
+          <p>A estratégia, ancorada no slogan <em>"O teu sonho é o nosso desafio!"</em>, pretende captar a geração Z (Boomlets — nascidos entre 2000 e 2010) e a geração Alpha (nascidos entre 2010 e 2020). É um paradigma novo: o conhecimento perdeu valor de posse e ganhou valor de prática e partilha — os valores e a partilha valem mais do que a posse do conhecimento.</p>
+          <p>Enfrentamos o desafio de uma renovação de gerações, com evolução tecnológica numa região onde esse processo avança de forma mais lenta — mas onde o nosso interesse é a fidelização e a criação de espaço para as novas gerações realizarem os seus sonhos.</p>
+        </div>
+        <aside class="aud__meta">
+          <div class="gen">
+            <div class="gen__mark">Z</div>
+            <div>
+              <span class="gen__name">Boomlets</span>
+              <span class="gen__years">Nascidos · 2000 — 2010</span>
+            </div>
+          </div>
+          <div class="aud__rule"></div>
+          <div class="gen">
+            <div class="gen__mark">α</div>
+            <div>
+              <span class="gen__name">Alpha</span>
+              <span class="gen__years">Nascidos · 2010 — 2020</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.eh-hist .reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
