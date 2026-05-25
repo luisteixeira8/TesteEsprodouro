@@ -1,0 +1,255 @@
+<style>
+.aval *{box-sizing:border-box;margin:0;padding:0}
+.aval{--ac:#e8383e;--dk:#171927;--tx:#1e1e1e;--t2:#555;--bd:#e5e5e5;font-family:inherit;color:var(--tx);line-height:1.55;-webkit-text-size-adjust:100%}
+.aval h2,.aval h3,.aval h4{text-wrap:balance}
+
+.aval-header{padding:20px 0 18px;text-align:center}
+.aval-eyebrow{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin-bottom:8px}
+.aval-title{font-weight:300;font-size:22px;line-height:1.1;letter-spacing:-0.02em;margin-bottom:6px}
+.aval-title em{font-style:italic;font-weight:600;color:var(--ac)}
+.aval-subtitle{font-size:12px;line-height:1.5;color:var(--t2)}
+
+.aval-body{display:flex;flex-direction:column;gap:32px;text-align:center}
+
+.aval-group{display:flex;flex-direction:column;gap:10px;padding:20px 16px;background:#fafafa;border-radius:12px}
+.aval-group__head{margin-bottom:6px}
+.aval-group__title{font-size:17px;font-weight:300;letter-spacing:-0.01em}
+.aval-group__title em{font-style:italic;font-weight:500;color:var(--ac)}
+.aval-group__subtitle{font-size:11px;color:var(--t2);margin-top:8px;margin-bottom:4px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+
+.aval-year{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:12px 14px}
+.aval-year__label{font-size:12px;font-weight:600;color:var(--tx);margin-bottom:8px}
+.aval-year__links{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.aval-year__links a{font-size:11px;font-weight:600;color:var(--ac);text-decoration:none;padding:6px 14px;border:1px solid var(--ac);border-radius:100px;transition:background .2s,color .2s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.aval-year__links a:hover{background:var(--ac);color:#fff}
+.aval-year__links a:active{background:var(--ac);color:#fff}
+
+.aval-list{display:flex;flex-direction:column;gap:6px}
+.aval-list a{display:block;font-size:12px;font-weight:500;color:var(--ac);text-decoration:none;padding:12px 14px;background:#fff;border:1px solid var(--bd);border-radius:8px;transition:border-color .2s,background .2s;-webkit-tap-highlight-color:transparent}
+.aval-list a:hover,.aval-list a:active{border-color:var(--ac);background:rgba(232,56,62,.04)}
+
+.aval-selo{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--ac);padding:8px 18px;border-radius:100px;text-decoration:none;transition:background .2s;margin-bottom:4px;-webkit-tap-highlight-color:transparent}
+.aval-selo:hover,.aval-selo:active{background:#c92f34}
+
+.aval-viewer{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.75);flex-direction:column;padding:8px}
+.aval-viewer.is-open{display:flex}
+.aval-viewer__bar{display:flex;align-items:center;justify-content:space-between;padding:6px 4px;margin-bottom:4px}
+.aval-viewer__title{font-size:12px;font-weight:600;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;margin-right:10px}
+.aval-viewer__close{background:none;border:none;color:#fff;font-size:26px;cursor:pointer;padding:4px 8px;line-height:1;opacity:.8;transition:opacity .15s;-webkit-tap-highlight-color:transparent}
+.aval-viewer__close:hover{opacity:1}
+.aval-viewer__frame{width:100%;flex:1;border:none;border-radius:6px;background:#fff}
+
+@media(min-width:480px){
+.aval-header{padding:24px 0 20px}
+.aval-title{font-size:24px}
+.aval-group{padding:24px 20px}
+.aval-year__links{gap:8px}
+.aval-list{display:grid;grid-template-columns:repeat(2,1fr)}
+.aval-viewer{padding:12px}
+}
+@media(min-width:768px){
+.aval-header{padding:36px 0 28px}
+.aval-eyebrow{font-size:11px;margin-bottom:12px}
+.aval-title{font-size:30px}
+.aval-subtitle{font-size:13px}
+.aval-body{gap:40px}
+.aval-group{padding:28px 24px;border-radius:14px}
+.aval-group__head{margin-bottom:10px}
+.aval-group__title{font-size:22px}
+.aval-year{padding:16px 20px}
+.aval-year__label{font-size:13px}
+.aval-list a{font-size:13px;padding:12px 16px}
+.aval-viewer{padding:20px}
+.aval-viewer__bar{max-width:900px;margin:0 auto 6px}
+.aval-viewer__frame{max-width:900px;margin:0 auto;border-radius:8px}
+}
+</style>
+
+<div class="aval">
+
+  <div class="aval-header">
+    <h2 class="aval-title">Avaliações Internas e Externas | Relatório <em>OTES</em></h2>
+  </div>
+
+  <div class="aval-body">
+
+    <!-- IGEC — Avaliações Externas -->
+    <div class="aval-group">
+      <div class="aval-group__head">
+        <h3 class="aval-group__title">IGEC — <em>Avaliações Externas</em></h3>
+      </div>
+      <p class="aval-group__subtitle">Inspecção Geral da Educação e Ciência</p>
+      <div class="aval-list">
+        <a href="https://esprodouro.com/wp-content/uploads/2025/06/VISEU_S_Joao_Pesqueira_AEE_ESPRODOURO_2024_2025_R_H.pdf">Relatório 2024/2025</a>
+        <a href="https://esprodouro.com/Documentos/AvaliacaoExterna/Relatorio_IGEC_2016.pdf">Relatório 2016</a>
+        <a href="https://esprodouro.com/Documentos/AvaliacaoExterna/Relatorio_IGEC_2017.pdf">Acompanhamento das recomendações 2017</a>
+      </div>
+    </div>
+
+    <!-- ESPRODOURO — Avaliações Internas -->
+    <div class="aval-group">
+      <div class="aval-group__head">
+        <h3 class="aval-group__title">ESPRODOURO — <em>Avaliações Internas</em></h3>
+      </div>
+
+      <div class="aval-year">
+        <div class="aval-year__label">2014 / 2015</div>
+        <div class="aval-year__links">
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1415P1.pdf">1.º Período</a>
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1415P2.pdf">2.º Período</a>
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1415P3.pdf">3.º Período</a>
+        </div>
+      </div>
+      <div class="aval-year">
+        <div class="aval-year__label">2015 / 2016</div>
+        <div class="aval-year__links">
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1516P1.pdf">1.º Período</a>
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1516P2.pdf">2.º Período</a>
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1516P3.pdf">3.º Período</a>
+        </div>
+      </div>
+      <div class="aval-year">
+        <div class="aval-year__label">2016 / 2017</div>
+        <div class="aval-year__links">
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1617P1.pdf">1.º Período</a>
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1617P2.pdf">2.º Período</a>
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1617P3.pdf">3.º Período</a>
+        </div>
+      </div>
+      <div class="aval-year">
+        <div class="aval-year__label">2017 / 2018</div>
+        <div class="aval-year__links">
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1718P1.pdf">1.º Período</a>
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1718P2.pdf">2.º Período</a>
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1718P3.pdf">3.º Período</a>
+        </div>
+      </div>
+      <div class="aval-year">
+        <div class="aval-year__label">2018 / 2019</div>
+        <div class="aval-year__links">
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1718P1.pdf">1.º Período</a>
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1819P2.pdf">2.º Período</a>
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1819P3.pdf">3.º Período</a>
+        </div>
+      </div>
+      <div class="aval-year">
+        <div class="aval-year__label">2019 / 2020</div>
+        <div class="aval-year__links">
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1920P1.pdf">1.º Período</a>
+          <a href="https://esprodouro.com/Documentos/AvaliacaoInterna/AI1920P2.pdf">2.º Período</a>
+          <a href="https://esprodouro.com/wp-content/uploads/2025/01/19-20-3o.pdf">3.º Período</a>
+        </div>
+      </div>
+      <div class="aval-year">
+        <div class="aval-year__label">2020 / 2021</div>
+        <div class="aval-year__links">
+          <a href="https://esprodouro.com/wp-content/uploads/2025/01/20-21-1o.pdf">1.º Período</a>
+          <a href="https://esprodouro.com/wp-content/uploads/2025/01/20-21-2o.pdf">2.º Período</a>
+          <a href="https://esprodouro.com/wp-content/uploads/2025/01/20-21-3o.pdf">3.º Período</a>
+        </div>
+      </div>
+      <div class="aval-year">
+        <div class="aval-year__label">2021 / 2022</div>
+        <div class="aval-year__links">
+          <a href="https://esprodouro.com/wp-content/uploads/2025/01/21-22-1o.pdf">1.º Período</a>
+          <a href="https://esprodouro.com/wp-content/uploads/2025/01/21-22-2o.pdf">2.º Período</a>
+          <a href="https://esprodouro.com/wp-content/uploads/2025/01/21-22-3o.pdf">3.º Período</a>
+        </div>
+      </div>
+      <div class="aval-year">
+        <div class="aval-year__label">2022 / 2023</div>
+        <div class="aval-year__links">
+          <a href="https://esprodouro.com/wp-content/uploads/2025/01/22-23-1o.pdf">1.º Semestre</a>
+          <a href="https://esprodouro.com/wp-content/uploads/2025/01/22-23-2o.pdf">2.º Semestre</a>
+        </div>
+      </div>
+      <div class="aval-year">
+        <div class="aval-year__label">2023 / 2024</div>
+        <div class="aval-year__links">
+          <a href="https://esprodouro.com/wp-content/uploads/2025/01/23-24-1o.pdf">1.º Semestre</a>
+          <a href="https://esprodouro.com/wp-content/uploads/2025/01/23-24-2o.pdf">2.º Semestre</a>
+        </div>
+      </div>
+      <div class="aval-year">
+        <div class="aval-year__label">2024 / 2025</div>
+        <div class="aval-year__links">
+          <a href="https://esprodouro.com/wp-content/uploads/2025/09/Analise-dos-Resultados-1.o-Semestre-24_25.pptx-2.pdf">1.º Semestre</a>
+          <a href="https://esprodouro.com/wp-content/uploads/2025/09/Analise-dos-Resultados-2.o-Semestre-24_25.pptx-2.pdf">2.º Semestre</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Relatórios OTES -->
+    <div class="aval-group">
+      <div class="aval-group__head">
+        <h3 class="aval-group__title">Relatórios <em>OTES</em></h3>
+      </div>
+      <div class="aval-list">
+        <a href="https://esprodouro.com/wp-content/uploads/2020/04/RelatorioOTES1617.pdf">Relatório OTES 2016/17</a>
+        <a href="https://esprodouro.com/wp-content/uploads/2019/05/RelatorioOTES1718.pdf">Relatório OTES 2017/18</a>
+        <a href="https://esprodouro.com/wp-content/uploads/2020/04/RelatorioOTES1819.pdf">Relatório OTES 2018/19</a>
+        <a href="https://esprodouro.com/wp-content/uploads/2025/01/Devolucao-de-dados-Estudantes-a-said-a-do-secundario-2021-1815311-1.pdf">Relatório OTES 2020/21</a>
+      </div>
+    </div>
+
+    <!-- EQAVET -->
+    <div class="aval-group">
+      <div class="aval-group__head">
+        <h3 class="aval-group__title"><em>EQAVET</em></h3>
+      </div>
+      <a href="https://esprodouro.com/wp-content/uploads/2025/01/12110_selo.pdf" target="_blank" rel="noopener" class="aval-selo">Selo EQAVET 23–26</a>
+      <div class="aval-list">
+        <a href="https://esprodouro.com/wp-content/uploads/2025/01/1573_auditoriafinal.pdf">Relatório Final de Verificação EQAVET — 2023</a>
+      </div>
+      <p class="aval-group__subtitle">Relatórios de progresso anual</p>
+      <div class="aval-list">
+        <a href="https://esprodouro.com/wp-content/uploads/2025/01/Relatorio-EQAVET-2020-2021.pdf">Relatório EQAVET 2020–2021</a>
+        <a href="https://esprodouro.com/wp-content/uploads/2025/01/Relatorio-EQAVET-21-22-1.pdf">Relatório EQAVET 2021–2022</a>
+        <a href="https://esprodouro.com/wp-content/uploads/2025/01/Relatorio-EQAVET-2022-2023.pdf">Relatório EQAVET 2022–2023</a>
+        <a href="https://esprodouro.com/wp-content/uploads/2025/01/Relatorio-Progresso-Anual-2023-2024.pdf">Relatório EQAVET 2023–2024</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="aval-viewer" id="aval-viewer">
+  <div class="aval-viewer__bar">
+    <span class="aval-viewer__title" id="aval-viewer-title"></span>
+    <button class="aval-viewer__close" id="aval-viewer-close" aria-label="Fechar">&times;</button>
+  </div>
+  <iframe class="aval-viewer__frame" id="aval-viewer-frame"></iframe>
+</div>
+
+<script>
+(function(){
+  var viewer=document.getElementById('aval-viewer');
+  var frame=document.getElementById('aval-viewer-frame');
+  var title=document.getElementById('aval-viewer-title');
+  var close=document.getElementById('aval-viewer-close');
+
+  document.querySelector('.aval').addEventListener('click',function(e){
+    var a=e.target.closest('a[href]');
+    if(!a||a.getAttribute('href')==='#')return;
+    e.preventDefault();
+    title.textContent=a.textContent.trim();
+    frame.src=a.href;
+    viewer.classList.add('is-open');
+    document.body.style.overflow='hidden';
+  });
+
+  function fechar(){
+    viewer.classList.remove('is-open');
+    frame.src='';
+    document.body.style.overflow='';
+  }
+
+  close.addEventListener('click',fechar);
+  viewer.addEventListener('click',function(e){
+    if(e.target===viewer)fechar();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&viewer.classList.contains('is-open'))fechar();
+  });
+})();
+</script>

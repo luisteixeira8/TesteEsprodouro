@@ -1,0 +1,208 @@
+<style>
+.ef *{box-sizing:border-box;margin:0;padding:0}
+.ef{--ac:#e8383e;--dk:#171927;--tx:#1e1e1e;--t2:#555;--bd:#e5e5e5;font-family:inherit;color:var(--tx);line-height:1.55;-webkit-text-size-adjust:100%}
+.ef h3{text-wrap:balance}
+
+.ef-kicker{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:20px;font-variant-numeric:tabular-nums}
+
+.ef-section{padding-top:28px;border-top:1px solid var(--bd);margin-top:28px}
+.ef-section h3{font-weight:300;font-size:clamp(22px,5.5vw,26px);line-height:1.15;letter-spacing:-0.02em;margin-bottom:14px}
+.ef-section h3 em{font-style:italic;font-weight:500;color:var(--ac)}
+
+#ef-form-area{scroll-margin-top:20px}
+.ef-form-top p{font-size:15px;line-height:1.6;color:var(--t2);margin-top:12px}
+
+.ef-form-wrap{background:var(--dk);color:#d4d4dc;padding:24px 16px 28px;margin-top:20px}
+.ef-form-wrap h3{font-weight:300;font-size:21px;line-height:1.15;margin-bottom:6px;color:#ededf0;letter-spacing:-0.01em}
+.ef-form-wrap h3 em{font-style:italic;color:var(--ac);font-weight:500}
+.ef-fsub{font-size:13px;color:#7e8090;margin-bottom:26px}
+
+.ef-form{display:flex;flex-direction:column;gap:36px}
+.ef-fld{display:flex;flex-direction:column;gap:7px}
+.ef-fld>label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7e8090}
+.ef-fld input,.ef-fld select{background:transparent;border:0;border-bottom:1px solid rgba(212,212,220,.18);padding:12px 0;font-family:inherit;font-size:16px;color:#ededf0;border-radius:0;-webkit-appearance:none;appearance:none;outline:none;width:100%;line-height:1.4;min-height:48px}
+.ef-fld select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23d4d4dc' d='M6 8 0 0h12z'/></svg>");background-repeat:no-repeat;background-position:right 4px center;padding-right:24px;cursor:pointer}
+.ef-fld select option{background:var(--dk);color:#ededf0}
+.ef-fld select:invalid{color:rgba(212,212,220,.4)}
+.ef-fld input:focus-visible,.ef-fld select:focus-visible{border-bottom-color:var(--ac)}
+.ef-fld input::placeholder{color:rgba(212,212,220,.25)}
+
+.ef-fnote{font-size:11.5px;color:#7e8090;line-height:1.5;margin-top:6px}
+
+.ef-fld__hint{font-size:11px;font-weight:500;letter-spacing:.02em;text-transform:none;color:#5e6071;margin-left:8px}
+.ef-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.ef-chip{position:relative;display:inline-block}
+.ef-chip input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.ef-chip span{display:inline-flex;align-items:center;padding:10px 14px;border:1px solid rgba(212,212,220,.22);border-radius:100px;font-size:13px;color:#d4d4dc;line-height:1.2;min-height:40px;transition:background .15s ease,border-color .15s ease,color .15s ease;-webkit-tap-highlight-color:transparent}
+.ef-chip input:checked + span{background:var(--ac);border-color:var(--ac);color:#fff}
+.ef-chip input:focus-visible + span{outline:2px solid #fff;outline-offset:2px}
+@media(hover:hover){.ef-chip:hover input:not(:checked) + span{border-color:rgba(212,212,220,.45);color:#ededf0}}
+
+.ef-rgpd{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:12.5px;color:#9a9caa;line-height:1.5;-webkit-tap-highlight-color:transparent}
+.ef-rgpd input{flex-shrink:0;width:18px;height:18px;margin-top:1px;accent-color:var(--ac);cursor:pointer}
+.ef-rgpd a{color:var(--ac);text-decoration:underline}
+
+.ef-btn{margin-top:10px;padding:18px 24px;background:var(--ac);color:#fff;border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;width:100%;min-height:54px;-webkit-tap-highlight-color:transparent}
+.ef-btn:active{opacity:.85}
+.ef-btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.ef-btn:disabled{opacity:.5;cursor:not-allowed}
+
+.ef-ferr{font-size:13px;font-weight:500;color:#ff7b6b;padding:8px 0 8px 14px;border-left:2px solid #ff7b6b;display:none}
+
+.ef-success{background:var(--dk);padding:36px 16px;text-align:center;margin-top:20px}
+.ef-success__c{width:48px;height:48px;border-radius:50%;background:#3cb371;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:#fff;font-size:22px;font-weight:700}
+.ef-success h3{font-weight:300;font-size:24px;color:#ededf0;margin-bottom:12px;letter-spacing:-0.01em}
+.ef-success h3 em{font-style:italic;color:var(--ac);font-weight:500}
+.ef-success p{font-size:15px;color:#9a9caa;line-height:1.6;max-width:400px;margin:0 auto}
+
+@media(min-width:768px){
+.ef-section{padding-top:48px;margin-top:48px}
+.ef-section h3{font-size:32px}
+.ef-form-top p{font-size:16px;max-width:540px}
+.ef-form-wrap{padding:40px 36px 44px}
+.ef-form-wrap h3{font-size:24px}
+.ef-success{padding:60px 32px}
+.ef-success h3{font-size:28px}
+.ef-success p{font-size:16px}
+}
+</style>
+
+<div class="ef">
+
+  <div class="ef-section" id="ef-form-area">
+    <div class="ef-form-top">
+      <div class="ef-kicker">05 — O teu convite</div>
+      <h3>Faltam poucos passos para <em>desbloqueares</em> o teu brinde</h3>
+      <p>Preenche o básico e a nossa equipa entra em contacto contigo pelo WhatsApp para combinar o teu futuro na ESPRODOURO.</p>
+    </div>
+
+    <div class="ef-form-wrap">
+      <h3>Os teus <em>dados</em></h3>
+      <p class="ef-fsub">Só o essencial para começarmos a conversa. Rápido e sem complicações.</p>
+
+      <form class="ef-form" id="ef-form" autocomplete="on" novalidate>
+        <div class="ef-fld">
+          <label for="ef-nome">Nome completo</label>
+          <input type="text" id="ef-nome" name="nome" required placeholder="Primeiro e último nome" autocomplete="name">
+        </div>
+        <div class="ef-fld">
+          <label for="ef-ano">Ano letivo atual</label>
+          <select id="ef-ano" name="ano" required autocomplete="off">
+            <option value="" disabled selected>Escolhe o teu ano</option>
+            <option value="8">8.º ano</option>
+            <option value="9">9.º ano</option>
+            <option value="10">10.º ano</option>
+          </select>
+        </div>
+        <div class="ef-fld">
+          <label id="ef-curso-lbl">Áreas de interesse <span class="ef-fld__hint">— podes escolher mais que uma</span></label>
+          <div class="ef-chips" role="group" aria-labelledby="ef-curso-lbl">
+            <label class="ef-chip"><input type="checkbox" name="curso" value="cozinha"><span>Cozinha e Restauração</span></label>
+            <label class="ef-chip"><input type="checkbox" name="curso" value="comunicacao"><span>Comunicação, Marketing e RP</span></label>
+            <label class="ef-chip"><input type="checkbox" name="curso" value="gestao"><span>Gestão e Administração</span></label>
+            <label class="ef-chip"><input type="checkbox" name="curso" value="eletronica"><span>Eletrónica e Automação</span></label>
+            <label class="ef-chip"><input type="checkbox" name="curso" value="enologia"><span>Enologia e Enoturismo</span></label>
+            <label class="ef-chip"><input type="checkbox" name="curso" value="conteudos"><span>Conteúdos Interativos</span></label>
+            <label class="ef-chip"><input type="checkbox" name="curso" value="cef"><span>CEF — Operador de Informática</span></label>
+            <label class="ef-chip"><input type="checkbox" name="curso" value="indeciso"><span>Ainda não sei</span></label>
+          </div>
+        </div>
+        <div class="ef-fld">
+          <label for="ef-tel">O teu WhatsApp</label>
+          <input type="tel" id="ef-tel" name="telefone" required placeholder="9XX XXX XXX" inputmode="numeric" autocomplete="tel">
+          <p class="ef-fnote">Ao enviares, autorizas a equipa da ESPRODOURO a contactar-te pelo WhatsApp.</p>
+        </div>
+
+        <label class="ef-rgpd">
+          <input type="checkbox" id="ef-rgpd" name="rgpd" required>
+          <span>Autorizo a ESPRODOURO a tratar os dados acima para resposta ao meu pedido de informação e contacto subsequente sobre o processo de matrícula. Conheço a <a href="https://esprodouro.com/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a> e sei que posso retirar este consentimento a qualquer momento por e-mail para <a href="mailto:geral@esprodouro.pt">geral@esprodouro.pt</a>.</span>
+        </label>
+
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="utm_term" value="">
+        <input type="hidden" name="gclid" value="">
+        <input type="hidden" name="fbclid" value="">
+        <input type="hidden" name="fbp" value="">
+        <input type="hidden" name="fbc" value="">
+
+        <div class="ef-ferr"></div>
+        <button type="submit" class="ef-btn">Falar com a Equipa de Admissões &rarr;</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  /* ── 1. Persistir UTMs, gclid e fbclid no cookie esp_attr (90 dias) ── */
+  var UTM_KEYS=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'];
+  var COOKIE_NAME='esp_attr';
+  var COOKIE_DAYS=90;
+
+  function setCookie(n,v,d){
+    var e=new Date();e.setTime(e.getTime()+d*864e5);
+    document.cookie=n+'='+encodeURIComponent(v)+';expires='+e.toUTCString()+';path=/;SameSite=Lax';
+  }
+  function getCookie(n){
+    var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');
+    return m?decodeURIComponent(m.pop()):'';
+  }
+
+  var params=new URLSearchParams(window.location.search);
+  var fromUrl={},hasAny=false;
+  UTM_KEYS.forEach(function(k){var v=params.get(k);if(v){fromUrl[k]=v;hasAny=true;}});
+  if(hasAny) setCookie(COOKIE_NAME,JSON.stringify(fromUrl),COOKIE_DAYS);
+
+  /* ── 2. Preencher hidden fields (UTMs do cookie + _fbp/_fbc dos cookies Meta) ── */
+  function fillAttribution(){
+    var f=document.getElementById('ef-form');if(!f)return;
+    var raw=getCookie(COOKIE_NAME);
+    if(raw){
+      try{
+        var data=JSON.parse(raw);
+        UTM_KEYS.forEach(function(k){
+          var inp=f.querySelector('input[name="'+k+'"]');
+          if(inp&&!inp.value&&data[k]) inp.value=data[k];
+        });
+      }catch(e){}
+    }
+    var fbpInp=f.querySelector('input[name="fbp"]');
+    var fbcInp=f.querySelector('input[name="fbc"]');
+    if(fbpInp) fbpInp.value=getCookie('_fbp');
+    if(fbcInp) fbcInp.value=getCookie('_fbc');
+  }
+
+  document.addEventListener('DOMContentLoaded',fillAttribution);
+
+  /* ── 3. Validação e submissão ── */
+  var f=document.getElementById('ef-form');if(!f)return;
+  var err=f.querySelector('.ef-ferr');
+  var v=function(n){return f.querySelector('[name="'+n+'"]').value.trim();};
+  var vp=function(p){return /^9\d{8}$/.test(p)||/^\+?351?9\d{8}$/.test(p);};
+  var s=function(m){err.textContent=m;err.style.display='block';return false;};
+
+  f.addEventListener('submit',function(e){
+    e.preventDefault();err.style.display='none';
+    fillAttribution();
+    var nome=v('nome'),ano=v('ano'),tel=v('telefone');
+    var cursos=Array.prototype.map.call(f.querySelectorAll('input[name="curso"]:checked'),function(i){return i.value;});
+    var ph=tel.replace(/[\s+]/g,'');
+    if(!nome)return s('O teu nome é obrigatório.');
+    if(!ano)return s('Escolhe o teu ano letivo.');
+    if(!cursos.length)return s('Escolhe pelo menos uma área de interesse.');
+    if(!vp(ph))return s('Número de WhatsApp inválido (9 dígitos a começar por 9).');
+    if(!f.querySelector('#ef-rgpd').checked)return s('Tens de aceitar a Política de Privacidade para continuar.');
+    var btn=f.querySelector('.ef-btn');btn.disabled=true;btn.textContent='A registar...';
+    var d=document.createElement('div');d.appendChild(document.createTextNode(nome.split(' ')[0]));
+    setTimeout(function(){
+      var sec=document.getElementById('ef-form-area');
+      sec.querySelector('.ef-form-wrap').outerHTML='<div class="ef-success"><div class="ef-success__c">&#10003;</div><h3>Tudo certo, <em>'+d.innerHTML+'</em>!</h3><p>A nossa equipa de admissões vai falar contigo pelo WhatsApp em breve para combinar o teu Jantar de Experiência. Fica atento ao telemóvel.</p></div>';
+      sec.querySelector('.ef-success').scrollIntoView({behavior:'smooth',block:'center'});
+    },500);
+  });
+})();
+</script>

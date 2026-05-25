@@ -1,0 +1,277 @@
+<!--
+  ═══════════════════════════════════════════════════════════════
+  ESPRODOURO — Dark theme para Fluent Forms #16
+  ═══════════════════════════════════════════════════════════════
+
+  OPÇÃO A (RECOMENDADA) — CSS no WordPress Customizer:
+    1. WordPress → Aparência → Personalizar → CSS Adicional
+    2. Colar TODO o bloco <style> abaixo (sem as tags <style>)
+    3. Publicar
+    4. No Elementor, usar 2 widgets empilhados:
+       • Widget HTML → colar só o <div> do título (final deste ficheiro)
+       • Widget Shortcode → escrever:  [fluentform id="16"]
+
+  OPÇÃO B — Tudo num widget HTML do Elementor:
+    1. Widget HTML → colar TUDO deste ficheiro
+    2. Widget Shortcode (logo abaixo) → escrever:  [fluentform id="16"]
+  ═══════════════════════════════════════════════════════════════
+-->
+
+<style>
+/* ── ESPRODOURO — Dark theme Fluent Forms ───────────────────── */
+
+/* ▸ Fundo escuro no container do Elementor que envolve o form.
+     Aplica-se a QUALQUER elemento que contenha um form do FF.   */
+.elementor-widget-shortcode .elementor-widget-container,
+.elementor-widget-shortcode .elementor-shortcode,
+.fluentform_wrapper_16,
+.ff_conv_app_16,
+.frm-fluent-form,
+form[data-form_id="16"],
+.fluentform,
+[class*="fluentform"],
+[class*="ff-"][class*="wrapper"],
+.elementor-widget-shortcode .elementor-widget-container *:has(> form) {
+  background: #171927 !important;
+  color: #d4d4dc !important;
+}
+
+/* Fallback: pintar o widget container inteiro se contém form */
+.elementor-widget-shortcode .elementor-widget-container {
+  background: #171927 !important;
+  padding: 0 16px 28px !important;
+  border-radius: 0 !important;
+}
+
+/* form element */
+form.frm-fluent-form,
+form[data-form_id="16"],
+.frm-fluent-form {
+  background: #171927 !important;
+  padding: 0 !important;
+  color: #d4d4dc !important;
+}
+
+/* Labels */
+.ff-el-input--label label,
+.fluentform_wrapper_16 label,
+form[data-form_id="16"] label {
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+  color: #7e8090 !important;
+  font-family: inherit !important;
+  margin-bottom: 4px !important;
+}
+
+/* Inputs */
+.ff-el-form-control,
+.fluentform_wrapper_16 input[type="text"],
+.fluentform_wrapper_16 input[type="tel"],
+.fluentform_wrapper_16 input[type="email"],
+.fluentform_wrapper_16 select,
+.fluentform_wrapper_16 textarea,
+form[data-form_id="16"] input[type="text"],
+form[data-form_id="16"] input[type="tel"],
+form[data-form_id="16"] input[type="email"],
+form[data-form_id="16"] select,
+form[data-form_id="16"] textarea {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(212,212,220,.18) !important;
+  padding: 12px 0 !important;
+  font-family: inherit !important;
+  font-size: 16px !important;
+  color: #ededf0 !important;
+  border-radius: 0 !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  outline: none !important;
+  width: 100% !important;
+  line-height: 1.4 !important;
+  min-height: 48px !important;
+  box-shadow: none !important;
+}
+
+.ff-el-form-control:focus,
+.fluentform_wrapper_16 input:focus,
+.fluentform_wrapper_16 select:focus,
+form[data-form_id="16"] input:focus,
+form[data-form_id="16"] select:focus {
+  border-bottom-color: #e8383e !important;
+  box-shadow: none !important;
+}
+
+.ff-el-form-control::placeholder,
+.fluentform_wrapper_16 input::placeholder,
+form[data-form_id="16"] input::placeholder {
+  color: rgba(212,212,220,.25) !important;
+}
+
+/* Select arrow */
+select.ff-el-form-control,
+.fluentform_wrapper_16 select,
+form[data-form_id="16"] select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23d4d4dc' d='M6 8 0 0h12z'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 4px center !important;
+  background-color: transparent !important;
+  padding-right: 24px !important;
+  cursor: pointer !important;
+}
+select.ff-el-form-control option,
+.fluentform_wrapper_16 select option,
+form[data-form_id="16"] select option {
+  background: #171927 !important;
+  color: #ededf0 !important;
+}
+
+/* Help text */
+.ff-el-help-message,
+.fluentform_wrapper_16 .ff-el-help-message {
+  font-size: 11.5px !important;
+  color: #7e8090 !important;
+  line-height: 1.5 !important;
+  margin-top: 6px !important;
+}
+
+/* Checkboxes — chips */
+.ff-el-form-check-list {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  margin-top: 4px !important;
+}
+.ff-el-form-check {
+  margin: 0 !important;
+}
+.ff-el-form-check label {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 10px 14px !important;
+  border: 1px solid rgba(212,212,220,.22) !important;
+  border-radius: 100px !important;
+  font-size: 13px !important;
+  color: #d4d4dc !important;
+  line-height: 1.2 !important;
+  min-height: 40px !important;
+  cursor: pointer !important;
+  transition: background .15s, border-color .15s, color .15s !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-weight: 400 !important;
+  -webkit-tap-highlight-color: transparent !important;
+  gap: 8px !important;
+  background: transparent !important;
+}
+.ff-el-form-check input[type="checkbox"] {
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  position: absolute !important;
+}
+.ff-el-form-check input[type="checkbox"]:checked + span,
+.ff-el-form-check.ff-checked label,
+.ff-el-form-check input[type="checkbox"]:checked ~ span {
+  background: #e8383e !important;
+  border-color: #e8383e !important;
+  color: #fff !important;
+}
+
+/* Terms / RGPD */
+.ff-t_c-content, .ff_t_c {
+  display: flex !important;
+  gap: 10px !important;
+  align-items: flex-start !important;
+  font-size: 12.5px !important;
+  color: #9a9caa !important;
+  line-height: 1.5 !important;
+  cursor: pointer !important;
+}
+.ff_t_c input[type="checkbox"], .ff-t_c-content input[type="checkbox"] {
+  flex-shrink: 0 !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin-top: 1px !important;
+  accent-color: #e8383e !important;
+  cursor: pointer !important;
+  position: relative !important;
+  opacity: 1 !important;
+}
+.ff_t_c a, .ff-t_c-content a {
+  color: #e8383e !important;
+  text-decoration: underline !important;
+}
+
+/* Botão submit */
+.ff-btn-submit,
+.fluentform_wrapper_16 button[type="submit"],
+form[data-form_id="16"] button[type="submit"] {
+  margin-top: 10px !important;
+  padding: 18px 24px !important;
+  background: #e8383e !important;
+  color: #fff !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+  width: 100% !important;
+  min-height: 54px !important;
+  border-radius: 0 !important;
+  -webkit-tap-highlight-color: transparent !important;
+  transition: background .2s !important;
+}
+.ff-btn-submit:hover,
+.fluentform_wrapper_16 button[type="submit"]:hover,
+form[data-form_id="16"] button[type="submit"]:hover {
+  background: #c92f34 !important;
+}
+.ff-btn-submit:disabled {
+  opacity: .5 !important;
+  cursor: not-allowed !important;
+}
+
+/* Erros */
+.ff-el-is-error .ff-el-form-control {
+  border-bottom-color: #ff7b6b !important;
+}
+.error.text-danger, .ff-el-is-error .error {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #ff7b6b !important;
+  margin-top: 4px !important;
+}
+
+/* Sucesso */
+.ff-message-success {
+  background: transparent !important;
+  padding: 36px 0 !important;
+  text-align: center !important;
+  border: none !important;
+  color: #ededf0 !important;
+}
+
+/* Limpar defaults */
+.ff-el-group {
+  margin-bottom: 16px !important;
+}
+
+@media(min-width:768px) {
+  .elementor-widget-shortcode .elementor-widget-container {
+    padding: 0 36px 44px !important;
+  }
+}
+</style>
+
+<!-- ─── Título (Widget HTML no Elementor) ──────────────────────── -->
+<div style="background:#171927;padding:24px 16px 0">
+  <h3 style="font-weight:300;font-size:21px;line-height:1.15;margin-bottom:6px;color:#ededf0;letter-spacing:-0.01em">Os teus <em style="font-style:italic;color:#e8383e;font-weight:500">dados</em></h3>
+  <p style="font-size:13px;color:#7e8090;margin:0 0 26px">Só o essencial para começarmos a conversa. Rápido e sem complicações.</p>
+</div>
+
+<!-- ─── Shortcode (Widget Shortcode SEPARADO no Elementor) ─────── -->
+<!-- [fluentform id="16"] -->
