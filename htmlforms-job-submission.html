@@ -1,0 +1,176 @@
+<!-- Formulário de submissão de vaga — colar no editor do HTML Forms -->
+<!-- Os atributos name="" correspondem aos campos esperados pelo snippet PHP -->
+
+<style>
+.jf *{box-sizing:border-box;margin:0;padding:0}
+.jf{--ac:#e8383e;--dk:#171927;--tx:#1e1e1e;--t2:#555;--bd:#e5e5e5;font-family:inherit;color:var(--tx);line-height:1.55;-webkit-text-size-adjust:100%}
+
+.jf-intro{margin-bottom:20px}
+.jf-kicker{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ac);margin-bottom:20px}
+.jf-intro h2{font-weight:300;font-size:clamp(22px,5.5vw,28px);line-height:1.15;letter-spacing:-0.02em;margin-bottom:10px}
+.jf-intro h2 em{font-style:italic;font-weight:500;color:var(--ac)}
+.jf-intro p{font-size:14px;line-height:1.7;color:var(--t2)}
+
+.jf-wrap{background:var(--dk);color:#d4d4dc;padding:24px 16px 28px}
+.jf-section{margin-bottom:36px}
+.jf-section:last-of-type{margin-bottom:0}
+.jf-section__title{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid rgba(212,212,220,.1)}
+
+.jf-row{display:flex;flex-direction:column;gap:28px}
+.jf-row--grid{gap:28px}
+
+.jf-fld{display:flex;flex-direction:column;gap:7px}
+.jf-fld>label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#7e8090}
+.jf-fld>label .jf-req{color:var(--ac);margin-left:4px}
+.jf-fld input[type="text"],
+.jf-fld input[type="email"],
+.jf-fld input[type="url"],
+.jf-fld input[type="date"],
+.jf-fld select,
+.jf-fld textarea{background:transparent;border:0;border-bottom:1px solid rgba(212,212,220,.18);padding:12px 0;font-family:inherit;font-size:16px;color:#ededf0;border-radius:0;-webkit-appearance:none;appearance:none;outline:none;width:100%;line-height:1.4;min-height:48px}
+.jf-fld textarea{resize:vertical;min-height:80px;line-height:1.6}
+.jf-fld select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23d4d4dc' d='M6 8 0 0h12z'/></svg>");background-repeat:no-repeat;background-position:right 4px center;padding-right:24px;cursor:pointer}
+.jf-fld select option{background:var(--dk);color:#ededf0}
+.jf-fld select:invalid{color:rgba(212,212,220,.4)}
+.jf-fld input:focus-visible,
+.jf-fld select:focus-visible,
+.jf-fld textarea:focus-visible{border-bottom-color:var(--ac)}
+.jf-fld input::placeholder,
+.jf-fld textarea::placeholder{color:rgba(212,212,220,.25)}
+.jf-fld input[type="date"]{color-scheme:dark}
+.jf-fnote{font-size:11.5px;color:#7e8090;line-height:1.5;margin-top:4px}
+
+.jf-rgpd{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:12.5px;color:#9a9caa;line-height:1.5;-webkit-tap-highlight-color:transparent;margin-top:8px}
+.jf-rgpd input{flex-shrink:0;width:18px;height:18px;margin-top:1px;accent-color:var(--ac);cursor:pointer}
+.jf-rgpd a{color:var(--ac);text-decoration:underline}
+
+.jf-btn{margin-top:10px;padding:18px 24px;background:var(--ac);color:#fff;border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;width:100%;min-height:54px;-webkit-tap-highlight-color:transparent}
+.jf-btn:hover{opacity:.92}
+.jf-btn:active{opacity:.85}
+.jf-btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+@media(min-width:480px){
+.jf-row--grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 24px}
+}
+@media(min-width:768px){
+.jf-wrap{padding:40px 36px 44px}
+.jf-intro h2{font-size:28px}
+.jf-intro p{font-size:15px;max-width:540px}
+}
+</style>
+
+<div class="jf">
+
+  <div class="jf-intro">
+    <div class="jf-kicker">Publicar vaga</div>
+    <h2>Submeta uma <em>oportunidade</em> de emprego</h2>
+    <p>Preencha os dados abaixo. A vaga será revista pela equipa antes de ser publicada no site.</p>
+  </div>
+
+  <div class="jf-wrap">
+
+    <!-- Secção 1 — Dados da vaga -->
+    <div class="jf-section">
+      <div class="jf-section__title">01 — Dados da vaga</div>
+      <div class="jf-row">
+
+        <div class="jf-fld">
+          <label for="jf-job-title">Título da vaga <span class="jf-req">*</span></label>
+          <input type="text" id="jf-job-title" name="job_title" required placeholder="Ex: Operador de Linha de Produção">
+        </div>
+
+        <div class="jf-fld">
+          <label for="jf-job-desc">Descrição da vaga <span class="jf-req">*</span></label>
+          <textarea id="jf-job-desc" name="job_description" rows="4" required placeholder="Descreva a função, contexto e objectivos da posição."></textarea>
+        </div>
+
+        <div class="jf-fld">
+          <label for="jf-resp">Responsabilidades</label>
+          <textarea id="jf-resp" name="responsibilities" rows="3" placeholder="Liste as principais responsabilidades da função."></textarea>
+        </div>
+
+        <div class="jf-fld">
+          <label for="jf-reqs">Requisitos</label>
+          <textarea id="jf-reqs" name="requirements" rows="3" placeholder="Formação, experiência, competências necessárias."></textarea>
+        </div>
+
+        <div class="jf-fld">
+          <label for="jf-benefits">Benefícios</label>
+          <textarea id="jf-benefits" name="benefits" rows="3" placeholder="Seguro de saúde, subsídio de alimentação, horário flexível, etc."></textarea>
+        </div>
+
+        <div class="jf-row jf-row--grid">
+          <div class="jf-fld">
+            <label for="jf-emp-type">Tipo de contrato</label>
+            <select id="jf-emp-type" name="employment_type">
+              <option value="" disabled selected>— Seleccionar —</option>
+              <option value="full-time">Tempo inteiro</option>
+              <option value="part-time">Tempo parcial</option>
+              <option value="temporary">Temporário</option>
+              <option value="internship">Estágio</option>
+              <option value="freelance">Freelance</option>
+            </select>
+          </div>
+          <div class="jf-fld">
+            <label for="jf-location">Localização</label>
+            <input type="text" id="jf-location" name="job_location" placeholder="Ex: Peso da Régua, Vila Real">
+          </div>
+          <div class="jf-fld">
+            <label for="jf-salary">Faixa salarial</label>
+            <input type="text" id="jf-salary" name="salary_range" placeholder="Ex: 900€ – 1200€ brutos/mês">
+          </div>
+          <div class="jf-fld">
+            <label for="jf-expiry">Data limite de candidatura</label>
+            <input type="date" id="jf-expiry" name="job_expiry">
+          </div>
+        </div>
+
+        <div class="jf-fld">
+          <label for="jf-app-url">Link externo para candidatura</label>
+          <input type="url" id="jf-app-url" name="application_url" placeholder="https://...">
+          <p class="jf-fnote">Opcional. Se preenchido, os candidatos serão redireccionados para este link.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Secção 2 — Dados da empresa -->
+    <div class="jf-section">
+      <div class="jf-section__title">02 — Dados da empresa</div>
+      <div class="jf-row">
+
+        <div class="jf-row jf-row--grid">
+          <div class="jf-fld">
+            <label for="jf-company">Nome da empresa <span class="jf-req">*</span></label>
+            <input type="text" id="jf-company" name="company" required placeholder="Ex: Quinta do Esprodouro, Lda.">
+          </div>
+          <div class="jf-fld">
+            <label for="jf-contact">Nome do responsável</label>
+            <input type="text" id="jf-contact" name="contact_name" placeholder="Nome de quem submete a vaga">
+          </div>
+        </div>
+
+        <div class="jf-fld">
+          <label for="jf-email">Email de contacto <span class="jf-req">*</span></label>
+          <input type="email" id="jf-email" name="hr_email" required placeholder="rh@empresa.pt">
+          <p class="jf-fnote">Usado para comunicação sobre o estado da vaga. Não será publicado.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Secção 3 — Consentimento + submissão -->
+    <div class="jf-section">
+      <div class="jf-section__title">03 — Consentimento</div>
+
+      <label class="jf-rgpd">
+        <input type="checkbox" name="consent_terms" value="1" required>
+        <span>Li e aceito os <a href="/termos" target="_blank" rel="noopener">termos e condições</a> e a <a href="/privacidade" target="_blank" rel="noopener">política de privacidade</a>. Autorizo o tratamento dos dados acima para publicação e gestão da vaga submetida.</span>
+      </label>
+
+      <input type="submit" class="jf-btn" value="Submeter vaga para revisão &#8594;">
+    </div>
+
+  </div>
+
+</div>
